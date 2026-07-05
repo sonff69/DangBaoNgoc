@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mein Reisepass - Đặng Bảo Ngọc Portfolio</title>
   
-  <!-- Google Fonts với tiếng Việt hoàn chỉnh -->
+  <!-- Google Fonts chuẩn hóa tiếng Việt và tiếng Đức hoàn hảo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -35,7 +35,7 @@
           fontFamily: {
             cinzel: ['Cinzel', 'serif'],
             playfair: ['Playfair Display', 'serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Be Vietnam Pro', 'sans-serif'],
           }
         }
       }
@@ -140,15 +140,15 @@
     }
   </style>
 </head>
-<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-5 overflow-hidden relative">
+<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-4 overflow-hidden relative">
 
   <!-- Máy bay giấy chuyển động dạng hoạt họa -->
   <div id="paper-plane" class="fixed pointer-events-none z-50 text-vintage-olive opacity-0" style="left: 0; top: 50%;">
     <i class="fa-solid fa-paper-plane text-4xl"></i>
   </div>
 
-  <!-- CONTAINER CHÍNH: Tự động tính toán thích ứng kích thước cửa sổ trình duyệt -->
-  <div class="w-full lg:w-[94vw] xl:w-[88vw] max-w-[1320px] passport-book relative h-auto min-h-[520px] lg:h-[82vh] lg:max-h-[720px] lg:min-h-[580px] flex items-center justify-center transition-all duration-300">
+  <!-- CONTAINER CHÍNH: Tối ưu hóa kích thước tối đa để vừa vặn hoàn hảo với màn hình lớn -->
+  <div class="w-full lg:w-[96vw] xl:w-[94vw] max-w-[1440px] passport-book relative h-auto min-h-[540px] lg:h-[88vh] lg:max-h-[820px] lg:min-h-[640px] flex items-center justify-center transition-all duration-300">
     
     <!-- ==================== COVER PAGE (BÌA HỘ CHIẾU) ==================== -->
     <div id="passport-cover" class="absolute w-full max-w-[480px] h-[580px] bg-gradient-to-br from-[#1c2e24] to-[#2b4133] border-4 border-vintage-gold rounded-2xl shadow-2xl z-30 flex flex-col justify-between p-8 text-center passport-cover overflow-hidden">
@@ -186,7 +186,7 @@
     <!-- ==================== INNER JOURNAL (NỘI DUNG BÊN TRONG) ==================== -->
     <div id="inner-journal" class="hidden w-full h-full bg-[#fbf9f5] border-2 border-vintage-mocha/30 rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 z-20 transition-all duration-500">
       
-      <!-- CỘT TRÁI (BOARDING PASS, ẢNH ĐẠI DIỆN & CHỈ MỤC HÀNH TRÌNH) -->
+      <!-- CỘT TRÁI (BOARDING PASS, ẢNH ĐẠI DIỆN TO RÕ & CHỈ MỤC HÀNH TRÌNH) -->
       <div class="lg:col-span-4 bg-vintage-beige/60 border-b lg:border-b-0 lg:border-r border-vintage-mocha/30 p-4 md:p-6 flex flex-col justify-between overflow-y-auto">
         <div>
           <!-- Tiêu đề Boarding Pass -->
@@ -200,27 +200,29 @@
             </div>
           </div>
 
-          <!-- Thông tin cá nhân & Ảnh đại diện (Hình 1.jpg) -->
+          <!-- Thông tin cá nhân & Ảnh đại diện lớn, rõ nét phong cách ảnh dán Hộ chiếu thực tế -->
           <div class="bg-vintage-cream/80 p-4 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-4">
-            <div class="flex items-center gap-4 mb-3">
-              <div class="w-16 h-20 border-2 border-vintage-mocha/50 rounded-md overflow-hidden bg-vintage-paper shadow-inner flex-shrink-0">
+            <div class="flex flex-col items-center text-center">
+              <!-- Ảnh đại diện phóng lớn phong cách ảnh thẻ Polaroid dán sổ -->
+              <div class="w-24 h-32 border-4 border-white shadow-md rounded-sm overflow-hidden bg-vintage-paper flex-shrink-0 transform rotate-1 hover:rotate-0 transition-transform duration-300 mb-3 relative">
                 <img src="Hình 1.jpg" alt="Ảnh đại diện Đặng Bảo Ngọc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200';">
+                <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full border border-vintage-red/50 text-vintage-red/50 text-[6px] flex items-center justify-center font-mono bg-white/80 rotate-12">ULIS</div>
               </div>
               <div>
-                <span class="text-[8px] uppercase font-mono text-vintage-mocha">HÀNH KHÁCH / PASSENGER</span>
-                <p class="font-bold text-xs text-vintage-charcoal font-playfair tracking-wide leading-none mt-0.5">ĐẶNG BẢO NGỌC</p>
-                <p class="font-bold font-mono text-[10px] text-vintage-mocha mt-1">MSSV: 25041946</p>
+                <span class="text-[9px] uppercase font-mono text-vintage-mocha tracking-wider block">HÀNH KHÁCH / PASSENGER</span>
+                <p class="font-bold text-base text-vintage-charcoal font-playfair tracking-wide leading-tight mt-0.5">ĐẶNG BẢO NGỌC</p>
+                <p class="font-bold font-mono text-xs text-vintage-mocha mt-1">MSSV: 25041946</p>
               </div>
             </div>
             
-            <div class="grid grid-cols-2 gap-2 text-[9px] border-t border-dashed border-vintage-mocha/20 pt-1.5">
-              <div>
-                <span class="text-[8px] uppercase font-mono text-vintage-mocha">CHUYÊN NGÀNH</span>
+            <div class="grid grid-cols-2 gap-2 text-[10px] border-t border-dashed border-vintage-mocha/20 pt-2.5 mt-3">
+              <div class="text-left">
+                <span class="text-[8px] uppercase font-mono text-vintage-mocha block">CHUYÊN NGÀNH</span>
                 <p class="font-bold text-vintage-olive leading-tight">Ngôn ngữ & VH Đức</p>
               </div>
-              <div>
-                <span class="text-[8px] uppercase font-mono text-vintage-mocha">CƠ SỞ ĐÀO TẠO</span>
-                <p class="font-semibold leading-tight">ĐH Ngoại ngữ - ĐHQGHN</p>
+              <div class="text-right">
+                <span class="text-[8px] uppercase font-mono text-vintage-mocha block">CƠ SỞ ĐÀO TẠO</span>
+                <p class="font-semibold text-vintage-charcoal leading-tight">ĐH Ngoại ngữ - ĐHQGHN</p>
               </div>
             </div>
           </div>
@@ -305,10 +307,10 @@
       </div>
 
       <!-- CỘT PHẢI (TRANG NỘI DUNG JOURNAL ĐỘNG) -->
-      <div class="lg:col-span-8 p-4 md:p-6 overflow-y-auto max-h-[60vh] lg:max-h-full flex flex-col justify-between bg-white relative">
+      <div class="lg:col-span-8 p-4 md:p-8 overflow-y-auto max-h-[60vh] lg:max-h-full flex flex-col justify-between bg-white relative">
         <!-- Đường bay mờ nhạt làm hình nền -->
         <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
-          <i class="fa-solid fa-globe text-[240px] text-vintage-mocha"></i>
+          <i class="fa-solid fa-globe text-[280px] text-vintage-mocha"></i>
         </div>
 
         <!-- CONTAINER CHỨA CÁC TRANG CHUYỂN ĐỔI -->
@@ -353,7 +355,7 @@
           </div>
 
           <!-- ==================== TRANG 01: THAO TÁC TỆP & THƯ MỤC ==================== -->
-          <div id="page-task1" class="page-content fade-in-up">
+          <div id="page-task1" class="page-content hidden fade-in-up">
             <div class="flex justify-between items-start mb-3">
               <div>
                 <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 01 • FILE MANAGEMENT SYSTEM</span>
