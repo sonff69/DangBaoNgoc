@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mein Reisepass - Đặng Bảo Ngọc Portfolio</title>
   
-  <!-- Google Fonts chuẩn hóa tiếng Việt và tiếng Đức hoàn hảo -->
+  <!-- Google Fonts hỗ trợ tiếng Việt hoàn chỉnh (Lora, Playfair Display, Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,9 +33,9 @@
             }
           },
           fontFamily: {
-            cinzel: ['Cinzel', 'serif'],
+            lora: ['Lora', 'serif'],
             playfair: ['Playfair Display', 'serif'],
-            sans: ['Be Vietnam Pro', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
           }
         }
       }
@@ -140,24 +140,25 @@
     }
   </style>
 </head>
-<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-4 overflow-hidden relative">
+<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-5 overflow-hidden relative">
 
   <!-- Máy bay giấy chuyển động dạng hoạt họa -->
   <div id="paper-plane" class="fixed pointer-events-none z-50 text-vintage-olive opacity-0" style="left: 0; top: 50%;">
     <i class="fa-solid fa-paper-plane text-4xl"></i>
   </div>
 
-  <!-- CONTAINER CHÍNH: Tối ưu hóa kích thước tối đa để vừa vặn hoàn hảo với màn hình lớn -->
-  <div class="w-full lg:w-[96vw] xl:w-[94vw] max-w-[1440px] passport-book relative h-auto min-h-[540px] lg:h-[88vh] lg:max-h-[820px] lg:min-h-[640px] flex items-center justify-center transition-all duration-300">
+  <!-- CONTAINER CHÍNH: Tối đa hóa kích thước để lấp đầy cửa sổ trình duyệt tuyệt đối -->
+  <div class="w-full lg:w-[96vw] xl:w-[94vw] max-w-[1440px] passport-book relative h-auto min-h-[580px] lg:h-[88vh] lg:max-h-[820px] lg:min-h-[640px] flex items-center justify-center transition-all duration-300">
     
     <!-- ==================== COVER PAGE (BÌA HỘ CHIẾU) ==================== -->
-    <div id="passport-cover" class="absolute w-full max-w-[480px] h-[580px] bg-gradient-to-br from-[#1c2e24] to-[#2b4133] border-4 border-vintage-gold rounded-2xl shadow-2xl z-30 flex flex-col justify-between p-8 text-center passport-cover overflow-hidden">
+    <div id="passport-cover" class="absolute w-full max-w-[500px] h-[610px] bg-gradient-to-br from-[#1c2e24] to-[#2b4133] border-4 border-vintage-gold rounded-2xl shadow-2xl z-30 flex flex-col justify-between p-8 text-center passport-cover overflow-hidden">
       <!-- Texture bìa giả da sang trọng -->
       <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
       
       <div class="flex flex-col items-center">
-        <span class="text-vintage-gold font-cinzel tracking-[0.3em] text-xs uppercase mb-2">Đại học Quốc gia Hà Nội</span>
-        <span class="text-vintage-gold font-cinzel tracking-[0.15em] text-sm uppercase font-semibold">Trường Đại học Ngoại ngữ</span>
+        <!-- Đã sửa lỗi font tiếng Việt hoàn toàn bằng cách đổi sang Playfair Display -->
+        <span class="text-vintage-gold font-playfair tracking-[0.2em] text-sm uppercase mb-1 font-semibold">Đại học Quốc gia Hà Nội</span>
+        <span class="text-vintage-gold font-playfair tracking-[0.1em] text-base uppercase font-bold">Trường Đại học Ngoại ngữ</span>
         <div class="w-16 h-[2px] bg-vintage-gold mt-2"></div>
       </div>
 
@@ -166,20 +167,20 @@
         <div class="text-vintage-gold text-6xl mb-4 animate-pulse">
           <i class="fa-solid fa-compass"></i>
         </div>
-        <h1 class="font-cinzel text-vintage-gold text-3xl font-bold tracking-[0.1em]">MEIN REISEPASS</h1>
+        <h1 class="font-playfair text-vintage-gold text-3xl font-bold tracking-[0.1em] uppercase">MEIN REISEPASS</h1>
         <p class="font-playfair italic text-vintage-beige text-xs mt-2 opacity-80">Portfolio Hành Trình Số & Trí Tuệ Nhân Tạo</p>
         <div class="mt-4 border border-vintage-gold/30 px-6 py-1.5 rounded bg-vintage-olive/40 backdrop-blur-sm">
           <p class="text-vintage-gold text-xs font-mono tracking-widest">OWNER: ĐẶNG BẢO NGỌC</p>
-          <p class="text-vintage-beige/70 text-[9px] font-mono mt-0.5">MAJOR: GERMAN LANGUAGE & CULTURE</p>
+          <p class="text-vintage-beige/70 text-[9px] font-mono mt-0.5 uppercase">MAJOR: GERMAN LANGUAGE & CULTURE</p>
         </div>
       </div>
 
       <div class="flex flex-col items-center gap-3">
-        <button onclick="openPassport()" class="px-8 py-2.5 bg-vintage-gold text-vintage-olive font-cinzel font-bold text-xs tracking-widest rounded-full shadow-lg hover:bg-white hover:text-vintage-olive transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+        <button onclick="openPassport()" class="px-8 py-2.5 bg-vintage-gold text-vintage-olive font-playfair font-bold text-xs tracking-widest rounded-full shadow-lg hover:bg-white hover:text-vintage-olive transition-all duration-300 transform hover:scale-105 flex items-center gap-2 uppercase">
           <span>KHÁM PHÁ HÀNH TRÌNH</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
-        <span class="text-vintage-gold/50 text-[10px] font-mono tracking-wider">K25 ULIS-VNU • EDTECH PORTFOLIO</span>
+        <span class="text-vintage-gold/50 text-[10px] font-mono tracking-wider uppercase">ULIS-VNU • EDTECH PORTFOLIO</span>
       </div>
     </div>
 
@@ -192,35 +193,32 @@
           <!-- Tiêu đề Boarding Pass -->
           <div class="flex justify-between items-center border-b-2 border-dashed border-vintage-mocha/40 pb-4 mb-4">
             <div>
-              <p class="font-cinzel text-[10px] tracking-widest text-vintage-mocha font-bold uppercase">BOARDING PASS</p>
-              <h2 class="font-cinzel text-base font-bold text-vintage-olive">HÀNH TRÌNH K25</h2>
+              <p class="font-playfair text-[10px] tracking-widest text-vintage-mocha font-bold uppercase">BOARDING PASS</p>
+              <h2 class="font-playfair text-base font-bold text-vintage-olive uppercase">HÀNH TRÌNH SỐ</h2>
             </div>
             <div class="text-vintage-olive text-2xl">
               <i class="fa-solid fa-plane-departure"></i>
             </div>
           </div>
 
-          <!-- Thông tin cá nhân & Ảnh đại diện lớn, rõ nét phong cách ảnh dán Hộ chiếu thực tế -->
-          <div class="bg-vintage-cream/80 p-4 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-4">
-            <div class="flex flex-col items-center text-center">
-              <!-- Ảnh đại diện phóng lớn phong cách ảnh thẻ Polaroid dán sổ -->
-              <div class="w-24 h-32 border-4 border-white shadow-md rounded-sm overflow-hidden bg-vintage-paper flex-shrink-0 transform rotate-1 hover:rotate-0 transition-transform duration-300 mb-3 relative">
-                <img src="Hình 1.jpg" alt="Ảnh đại diện Đặng Bảo Ngọc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200';">
-                <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full border border-vintage-red/50 text-vintage-red/50 text-[6px] flex items-center justify-center font-mono bg-white/80 rotate-12">ULIS</div>
-              </div>
-              <div>
-                <span class="text-[9px] uppercase font-mono text-vintage-mocha tracking-wider block">HÀNH KHÁCH / PASSENGER</span>
-                <p class="font-bold text-base text-vintage-charcoal font-playfair tracking-wide leading-tight mt-0.5">ĐẶNG BẢO NGỌC</p>
-                <p class="font-bold font-mono text-xs text-vintage-mocha mt-1">MSSV: 25041946</p>
-              </div>
+          <!-- Thông tin cá nhân & Ảnh đại diện PHÓNG TO RÕ RÀNG -->
+          <div class="bg-vintage-cream/80 p-4 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-4 flex flex-col items-center text-center">
+            <!-- Đã phóng to khung ảnh AVT sắc nét -->
+            <div class="w-24 h-32 md:w-28 md:h-36 border-2 border-vintage-mocha/50 rounded-lg overflow-hidden bg-vintage-paper shadow-md mb-3 flex-shrink-0">
+              <img src="Hình 1.jpg" alt="Ảnh đại diện Đặng Bảo Ngọc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200';">
+            </div>
+            <div class="w-full">
+              <span class="text-[8px] uppercase font-mono text-vintage-mocha tracking-wider block">HÀNH KHÁCH / PASSENGER</span>
+              <p class="font-bold text-base text-vintage-charcoal font-playfair tracking-wide leading-tight mt-0.5">ĐẶNG BẢO NGỌC</p>
+              <p class="font-bold font-mono text-xs text-vintage-mocha mt-1">MSSV: 25041946</p>
             </div>
             
-            <div class="grid grid-cols-2 gap-2 text-[10px] border-t border-dashed border-vintage-mocha/20 pt-2.5 mt-3">
-              <div class="text-left">
+            <div class="w-full grid grid-cols-2 gap-2 text-[10px] border-t border-dashed border-vintage-mocha/20 pt-2.5 mt-3 text-left">
+              <div>
                 <span class="text-[8px] uppercase font-mono text-vintage-mocha block">CHUYÊN NGÀNH</span>
                 <p class="font-bold text-vintage-olive leading-tight">Ngôn ngữ & VH Đức</p>
               </div>
-              <div class="text-right">
+              <div>
                 <span class="text-[8px] uppercase font-mono text-vintage-mocha block">CƠ SỞ ĐÀO TẠO</span>
                 <p class="font-semibold text-vintage-charcoal leading-tight">ĐH Ngoại ngữ - ĐHQGHN</p>
               </div>
@@ -229,7 +227,7 @@
 
           <!-- Nút truy cập thư mục Google Drive bài tập lớn -->
           <div class="mb-3">
-            <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="w-full py-2 px-3 bg-vintage-gold text-vintage-olive border border-vintage-gold hover:bg-white hover:text-vintage-olive font-cinzel font-bold text-[9px] tracking-wider rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all duration-200">
+            <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="w-full py-2 px-3 bg-vintage-gold text-vintage-olive border border-vintage-gold hover:bg-white hover:text-vintage-olive font-playfair font-bold text-[10px] tracking-wider rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all duration-200">
               <i class="fa-brands fa-google-drive text-xs"></i>
               <span>XEM BÀI TẬP TRÊN GG DRIVE</span>
             </a>
@@ -299,18 +297,18 @@
 
         <!-- Mã vạch và đóng hộ chiếu -->
         <div class="mt-3 border-t border-dashed border-vintage-mocha/40 pt-2 text-center">
-          <p class="text-[8px] font-mono text-vintage-mocha tracking-widest mb-0.5">GATE K25 - PASSENGER ID: 25041946</p>
-          <button onclick="closePassport()" class="text-[10px] font-cinzel font-semibold text-vintage-red hover:underline block mx-auto flex items-center gap-1 justify-center">
+          <p class="text-[8px] font-mono text-vintage-mocha tracking-widest mb-0.5">PASSENGER ID: 25041946</p>
+          <button onclick="closePassport()" class="text-[10px] font-playfair font-semibold text-vintage-red hover:underline block mx-auto flex items-center gap-1 justify-center">
             <i class="fa-solid fa-folder-closed text-[9px]"></i> Gấp hộ chiếu lại
           </button>
         </div>
       </div>
 
       <!-- CỘT PHẢI (TRANG NỘI DUNG JOURNAL ĐỘNG) -->
-      <div class="lg:col-span-8 p-4 md:p-8 overflow-y-auto max-h-[60vh] lg:max-h-full flex flex-col justify-between bg-white relative">
+      <div class="lg:col-span-8 p-4 md:p-6 overflow-y-auto max-h-[60vh] lg:max-h-full flex flex-col justify-between bg-white relative">
         <!-- Đường bay mờ nhạt làm hình nền -->
         <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
-          <i class="fa-solid fa-globe text-[280px] text-vintage-mocha"></i>
+          <i class="fa-solid fa-globe text-[240px] text-vintage-mocha"></i>
         </div>
 
         <!-- CONTAINER CHỨA CÁC TRANG CHUYỂN ĐỔI -->
@@ -321,7 +319,7 @@
             <div class="flex justify-between items-start mb-3">
               <div>
                 <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG KHỞI HÀNH • DEPARTURE</span>
-                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">00. Chuyến Bay Số Hiệu K25 ULIS</h3>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">00. Chuyến Bay Số Hiệu ULIS-VNU</h3>
               </div>
               <div class="vintage-stamp stamp-approved w-14 h-14 text-[8px] text-vintage-olive flex flex-col justify-center">
                 <span>BERLIN</span>
@@ -343,11 +341,11 @@
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
                 <div class="border border-vintage-mocha/20 p-2.5 rounded-lg bg-vintage-cream/20">
-                  <h5 class="text-[11px] font-bold text-vintage-mocha uppercase mb-0.5"><i class="fa-solid fa-passport"></i> Mục đích Portfolio</h5>
+                  <h5 class="text-[11px] font-bold text-vintage-mocha uppercase mb-0.5 font-playfair"><i class="fa-solid fa-passport"></i> Mục đích Portfolio</h5>
                   <p class="text-[11px] leading-snug">Số hóa các thành quả nghiên cứu học thuật, tự phản tích ưu nhược điểm cá nhân một cách nghiêm túc nhằm phục vụ lưu trữ lâu dài [INDEX].</p>
                 </div>
                 <div class="border border-vintage-mocha/20 p-2.5 rounded-lg bg-vintage-cream/20">
-                  <h5 class="text-[11px] font-bold text-vintage-mocha uppercase mb-0.5"><i class="fa-solid fa-route"></i> Hành trình tương lai</h5>
+                  <h5 class="text-[11px] font-bold text-vintage-mocha uppercase mb-0.5 font-playfair"><i class="fa-solid fa-route"></i> Hành trình tương lai</h5>
                   <p class="text-[11px] leading-snug">Làm chủ công nghệ để đẩy nhanh tiến độ học tập, tự tin dịch thuật song ngữ Việt - Đức hiệu quả, hướng đến mục tiêu đạt C1 trong tương lai [INDEX].</p>
                 </div>
               </div>
@@ -427,7 +425,7 @@
 
           <!-- ==================== TRANG 02: TÌM KIẾM HỌC THUẬT ==================== -->
           <div id="page-task2" class="page-content hidden fade-in-up">
-            <div class="flex justify-between items-start mb-3">
+            <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 02 • ACADEMIC SEARCH STRATEGY</span>
                 <h3 class="font-playfair text-2xl font-bold text-vintage-olive">02. Chiến Lược Khai Thác & Đánh Giá</h3>
@@ -461,7 +459,7 @@
               <!-- Kết quả giả lập bảng đánh giá CRAAP học thuật thực tế từ PDF 2 -->
               <div id="search-result-table" class="hidden text-[10px] md:text-[11px] overflow-x-auto border border-vintage-mocha/20 rounded-lg max-h-[160px] overflow-y-auto">
                 <table class="w-full text-left border-collapse bg-white">
-                  <thead class="sticky top-0 bg-vintage-beige">
+                  <thead class="sticky top-0 bg-vintage-beige font-playfair">
                     <tr class="border-b border-vintage-mocha/20 text-vintage-olive">
                       <th class="p-1.5 font-bold">STT</th>
                       <th class="p-1.5 font-bold">Tên tài liệu / Tác giả</th>
@@ -534,8 +532,8 @@
               <div id="prompt-content-area" class="space-y-2">
                 <!-- Nội dung Tác vụ 1 mặc định -->
                 <div class="bg-vintage-cream/30 p-2.5 rounded-lg border border-vintage-mocha/10">
-                  <span class="text-[10px] font-bold text-vintage-olive block uppercase mb-0.5">Phiên bản Nâng cao (Role + Chain-of-Thought) [INDEX]</span>
-                  <p class="text-[11px] font-mono bg-white p-2 rounded border border-vintage-mocha/20 leading-relaxed text-vintage-charcoal/90">
+                  <span class="text-[10px] font-bold text-vintage-olive block uppercase mb-1 font-playfair">Phiên bản Nâng cao (Role + Chain-of-Thought) [INDEX]</span>
+                  <p class="text-xs font-mono bg-white p-2.5 rounded border border-vintage-mocha/20 leading-relaxed text-vintage-charcoal/90">
                     "Bạn là một chuyên gia ngôn ngữ học ứng dụng chuyên sâu về giảng dạy tiếng Đức (DaF) tại ULIS [INDEX]. Hãy đọc tài liệu học thuật dưới đây và thực hiện tóm tắt theo quy trình từng bước (Chain-of-Thought):<br>
                     - Bước 1: Trích xuất 3 phương pháp ghi nhớ từ vựng được tác giả chứng minh hiệu quả nhất [INDEX].<br>
                     - Bước 2: Phân tích ngắn gọn ưu và nhược điểm của từng phương pháp đối với sinh viên năm nhất Việt Nam [INDEX].<br>
@@ -581,7 +579,7 @@
               <!-- Tabs quản lý công cụ nhóm -->
               <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div class="p-2.5 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
-                  <span class="font-bold text-vintage-olive block mb-0.5"><i class="fa-brands fa-trello"></i> Trello Kanban (Thực tế)</span>
+                  <span class="font-bold text-vintage-olive block mb-0.5 font-playfair"><i class="fa-brands fa-trello"></i> Trello Kanban (Thực tế)</span>
                   <ul class="space-y-0.5 text-vintage-charcoal/80 pl-1 text-[11px]">
                     <li>• <b>InProgress:</b> Thiết kế Slide/Infographic cẩm nang số hóa [INDEX].</li>
                     <li>• <b>NeedToFix:</b> Setup bối cảnh quay phỏng vấn nhóm [INDEX].</li>
@@ -589,7 +587,7 @@
                 </div>
                 
                 <div class="p-2.5 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
-                  <span class="font-bold text-vintage-olive block mb-0.5"><i class="fa-brands fa-google-drive"></i> Google Drive (Đa cấp)</span>
+                  <span class="font-bold text-vintage-olive block mb-0.5 font-playfair"><i class="fa-brands fa-google-drive"></i> Google Drive (Đa cấp)</span>
                   <p class="text-[10px] text-vintage-charcoal/80 font-mono leading-tight">
                     📁 01. Đề cương dự án<br>
                     📁 02. Nghiên cứu & Dữ liệu<br>
@@ -599,7 +597,7 @@
                 </div>
 
                 <div class="p-2.5 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
-                  <span class="font-bold text-vintage-olive block mb-0.5"><i class="fa-brands fa-discord"></i> Giao tiếp Discord</span>
+                  <span class="font-bold text-vintage-olive block mb-0.5 font-playfair"><i class="fa-brands fa-discord"></i> Giao tiếp Discord</span>
                   <p class="text-[10px] text-vintage-charcoal/80 italic leading-snug">
                     Hơn 10 lượt tương tác dồn dập hàng tuần để điều phối báo cáo tiến độ và duyệt nội dung [INDEX].
                   </p>
@@ -617,16 +615,16 @@
                         <p class="font-semibold leading-tight">Thiết kế Slide & Infographic</p>
                         <span class="text-[8px] text-vintage-mocha">Đặng Bảo Ngọc [INDEX]</span>
                       </div>
+                      <div onclick="moveTask(this, 'col-done')" class="p-1.5 bg-vintage-cream/50 rounded cursor-pointer hover:bg-vintage-beige/40">
+                        <p class="font-semibold leading-tight">Xây dựng đề án tổng thể</p>
+                        <span class="text-[8px] text-vintage-mocha">Đồng bộ đám mây [INDEX]</span>
+                      </div>
                     </div>
                   </div>
                   
                   <div class="bg-white p-2 rounded border border-vintage-mocha/20">
                     <span class="text-[8px] font-bold text-green-700 block mb-1">DONE</span>
                     <div id="col-done" class="space-y-1 text-[10px]">
-                      <div onclick="moveTask(this, 'col-inprogress')" class="p-1.5 bg-vintage-cream/50 rounded cursor-pointer hover:bg-vintage-beige/40">
-                        <p class="font-semibold leading-tight">Xây dựng đề án tổng thể</p>
-                        <span class="text-[8px] text-green-700">Đồng bộ đám mây [INDEX]</span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -670,7 +668,7 @@
                 </div>
 
                 <div class="p-2.5 border border-vintage-mocha/20 rounded-xl bg-vintage-cream/10 space-y-1.5 text-xs">
-                  <span class="font-bold text-vintage-olive block"><i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i> Hệ sinh thái GenAI trợ lực [INDEX]:</span>
+                  <span class="font-bold text-vintage-olive block font-playfair"><i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i> Hệ sinh thái GenAI trợ lực [INDEX]:</span>
                   <div class="space-y-1 pl-1 text-vintage-charcoal/80 text-[11px]">
                     <p>• <b>Google Gemini (Văn bản):</b> Kịch bản song ngữ Đức - Việt (Flashcards, Loci-Methode), gọt giũa 60% bản thô để đảm bảo chính xác [INDEX].</p>
                     <p>• <b>Canva AI (Thiết kế):</b> Đồng bộ hóa bảng mã màu chuẩn xác và phân cấp thị giác (Visual Hierarchy) thương hiệu nhà trường [INDEX].</p>
@@ -749,13 +747,13 @@
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-1.5">
                 <div class="bg-vintage-cream/40 p-2.5 rounded-lg border border-vintage-mocha/20">
-                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-0.5"><i class="fa-solid fa-graduation-cap"></i> Nhận thức khoa học</h4>
+                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-0.5 font-playfair"><i class="fa-solid fa-graduation-cap"></i> Nhận thức khoa học</h4>
                   <p class="text-[11px] leading-relaxed text-vintage-charcoal/80">
                     Tôi đã vượt qua rào cản công nghệ ban đầu của một sinh viên ngoại ngữ năm nhất, học cách thiết lập Prompt thông minh, tư duy logic và lưu trữ khoa học [INDEX].
                   </p>
                 </div>
                 <div class="bg-vintage-cream/40 p-2.5 rounded-lg border border-vintage-mocha/20">
-                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-0.5"><i class="fa-solid fa-seedling"></i> Thực tiễn nghề nghiệp</h4>
+                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-0.5 font-playfair"><i class="fa-solid fa-seedling"></i> Thực tiễn nghề nghiệp</h4>
                   <p class="text-[11px] leading-relaxed text-vintage-charcoal/80">
                     Sự thấu hiểu công cụ số sẽ trở thành bàn đạp then chốt giúp tôi tối đa hóa năng lực nghiên cứu, nâng cao hiệu suất dịch thuật song ngữ Việt - Đức [INDEX].
                   </p>
@@ -765,7 +763,7 @@
               <!-- Thư mục liên kết ngoài -->
               <div class="p-2.5 border border-dashed border-vintage-mocha/40 rounded-xl bg-vintage-cream/20 flex flex-col md:flex-row items-center justify-between gap-2.5 mt-2">
                 <div class="text-center md:text-left leading-tight">
-                  <h5 class="text-xs font-bold text-vintage-charcoal">Thư mục Bài tập Lớn (Google Drive)</h5>
+                  <h5 class="text-xs font-bold text-vintage-charcoal font-playfair">Thư mục Bài tập Lớn (Google Drive)</h5>
                   <p class="text-[10px] text-vintage-mocha">Chứa đầy đủ các mã nguồn TikZ, bài viết PDF và tài liệu báo cáo cụ thể.</p>
                 </div>
                 <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="px-4 py-1.5 bg-vintage-olive text-white text-xs font-mono rounded hover:bg-vintage-mocha transition-all flex items-center gap-1.5 shadow">
