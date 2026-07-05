@@ -8,15 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-cream: #f4efe6;
-            --paper-light: #faf8f5;
-            --paper-dark: #e8dfd0;
+            --bg-cream: #f2ebd9;
+            --paper-light: #faf6ee;
+            --paper-dark: #e6dcce;
             --mocha-dark: #3e322a;
             --mocha-medium: #5c4a3e;
             --sage-green: #5f6f52;
             --sage-light: #e3e8e1;
             --gold-accent: #c5a059;
-            --ink-blue: #1b2a47;
+            --ink-blue: #1d3557;
             --ink-red: #8c2520;
             --shadow-soft: 0 10px 30px rgba(62, 50, 42, 0.08);
             --shadow-hard: 0 15px 35px rgba(0, 0, 0, 0.15);
@@ -31,8 +31,8 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #ede6d9;
-            background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0), radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0);
+            background-color: #e5dccb;
+            background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 0), radial-gradient(rgba(0,0,0,0.04) 1px, transparent 0);
             background-size: 24px 24px;
             background-position: 0 0, 12px 12px;
             color: var(--mocha-dark);
@@ -43,20 +43,20 @@
         /* Ambient Travel Graphics */
         .decor-plane {
             position: fixed;
-            top: 10%;
+            top: 12%;
             left: -100px;
-            width: 40px;
-            height: 40px;
-            opacity: 0.15;
+            width: 35px;
+            height: 35px;
+            opacity: 0.12;
             z-index: 1;
             pointer-events: none;
-            animation: flyAcross 25s linear infinite;
+            animation: flyAcross 28s linear infinite;
         }
 
         @keyframes flyAcross {
             0% { transform: translate(0, 0) rotate(15deg); left: -100px; }
-            50% { transform: translate(50vw, 100px) rotate(10deg); }
-            100% { transform: translate(110vw, -50px) rotate(20deg); left: 100%; }
+            50% { transform: translate(50vw, 80px) rotate(8deg); }
+            100% { transform: translate(110vw, -40px) rotate(18deg); left: 100%; }
         }
 
         /* Global Container styling */
@@ -90,7 +90,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, transparent, rgba(62, 50, 42, 0.15) 10%, rgba(62, 50, 42, 0.15) 90%, transparent);
+            background: linear-gradient(to bottom, transparent, rgba(62, 50, 42, 0.18) 10%, rgba(62, 50, 42, 0.18) 90%, transparent);
             z-index: 10;
         }
 
@@ -101,7 +101,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #263829; /* Dark luxury green */
+            background-color: #243326; /* Dark luxury green */
             background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 0);
             background-size: 16px 16px;
             z-index: 100;
@@ -188,7 +188,7 @@
 
         .cover-btn:hover {
             background-color: var(--gold-accent);
-            color: #263829;
+            color: #243326;
             box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
         }
 
@@ -204,34 +204,22 @@
             overflow: hidden;
         }
 
-        /* Background watermarks for left side */
-        .compass-watermark-left {
+        /* Left Page Background Watermark Compass */
+        .left-bg-watermark {
             position: absolute;
-            bottom: -50px;
-            left: -50px;
-            width: 250px;
-            height: 250px;
-            opacity: 0.05;
+            bottom: -30px;
+            right: -30px;
+            width: 220px;
+            height: 220px;
+            opacity: 0.04;
             pointer-events: none;
             fill: var(--mocha-dark);
         }
 
-        .vintage-stamp-left-1 {
-            position: absolute;
-            bottom: 220px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            opacity: 0.12;
-            transform: rotate(-25deg);
-            pointer-events: none;
-            fill: var(--ink-blue);
-        }
-
         .passport-stamp-seal {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             width: 75px;
             height: 75px;
             opacity: 0.35;
@@ -243,6 +231,7 @@
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
+            position: relative;
             z-index: 2;
         }
 
@@ -290,6 +279,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            position: relative;
             z-index: 2;
         }
 
@@ -301,15 +291,6 @@
             margin-bottom: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .passenger-header-title svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--mocha-dark);
         }
 
         .detail-row {
@@ -368,32 +349,25 @@
             max-height: 850px;
             scroll-behavior: smooth;
             position: relative;
+            /* Dotted Grid Background - Sổ tay lữ hành */
+            background-color: var(--paper-light);
+            background-image: radial-gradient(rgba(62, 50, 42, 0.05) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
         }
 
-        /* Watermarks for right side */
-        .compass-watermark-right {
-            position: absolute;
-            top: 20%;
-            right: -80px;
-            width: 320px;
-            height: 320px;
-            opacity: 0.04;
-            pointer-events: none;
-            fill: var(--mocha-dark);
-            z-index: 1;
+        /* Custom Scrollbar for Right Pane */
+        .passport-right::-webkit-scrollbar {
+            width: 6px;
         }
-
-        .vintage-stamp-right-flat {
-            position: absolute;
-            bottom: 45px;
-            left: 20px;
-            width: 130px;
-            height: 70px;
-            opacity: 0.1;
-            transform: rotate(5deg);
-            pointer-events: none;
-            fill: var(--ink-red);
-            z-index: 1;
+        .passport-right::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .passport-right::-webkit-scrollbar-thumb {
+            background: rgba(62, 50, 42, 0.15);
+            border-radius: 10px;
+        }
+        .passport-right::-webkit-scrollbar-thumb:hover {
+            background: rgba(62, 50, 42, 0.3);
         }
 
         /* Boarding Pass Quick Nav */
@@ -402,7 +376,7 @@
             border: 2px dashed var(--gold-accent);
             padding: 15px 20px;
             border-radius: 6px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -472,6 +446,44 @@
             transform: translateY(-2px);
         }
 
+        /* --- VISUAL DECORATIONS --- */
+        /* Dotted Flight Path Lines */
+        .flight-trail-decor {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 90%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.35;
+        }
+
+        /* Coffee Stain Ring */
+        .coffee-stain-decor {
+            position: absolute;
+            bottom: 40px;
+            left: -30px;
+            width: 140px;
+            height: 140px;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: multiply;
+        }
+
+        /* Handwritten Margin Notes */
+        .handwritten-note {
+            font-family: 'Caveat', cursive;
+            font-size: 1.35rem;
+            color: var(--ink-blue);
+            position: absolute;
+            transform: rotate(-6deg);
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 3;
+        }
+
         /* --- JOURNEY SECTIONS & STOPS --- */
         .journey-section {
             padding-bottom: 50px;
@@ -506,15 +518,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .section-num svg {
-            width: 14px;
-            height: 14px;
-            fill: var(--gold-accent);
+            display: block;
         }
 
         .section-title-vn {
@@ -563,74 +567,28 @@
             text-align: justify;
         }
 
-        /* Timeline / Flight Path structure for Stations */
-        .projects-timeline {
-            position: relative;
-            padding-left: 30px;
-            margin-top: 30px;
-        }
-
-        /* The vertical dashed flight path */
-        .projects-timeline::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 15px;
-            bottom: 15px;
-            width: 2px;
-            background-image: linear-gradient(to bottom, var(--gold-accent) 40%, rgba(255,255,255,0) 0%);
-            background-position: left;
-            background-size: 2px 10px;
-            background-repeat: repeat-y;
-            z-index: 1;
-        }
-
         /* Task layout styling */
+        .task-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
         .task-card {
             background-color: rgba(255,255,255,0.6);
             border: 1px solid rgba(62, 50, 42, 0.08);
             border-radius: 6px;
-            padding: 20px 20px 20px 25px;
-            position: relative;
+            padding: 20px;
             transition: all 0.3s;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 2px 10px rgba(62, 50, 42, 0.02);
         }
 
         .task-card:hover {
             background-color: #fff;
             box-shadow: var(--shadow-soft);
             transform: translateY(-2px);
-        }
-
-        /* Waypoint node on flight path */
-        .station-node {
-            position: absolute;
-            left: -30px;
-            top: 22px;
-            width: 18px;
-            height: 18px;
-            background-color: var(--paper-light);
-            border: 2px solid var(--gold-accent);
-            border-radius: 50%;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .station-node::after {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background-color: var(--sage-green);
-            border-radius: 50%;
-        }
-
-        .task-card:hover .station-node {
-            background-color: var(--sage-green);
-            border-color: var(--sage-green);
-        }
-        .task-card:hover .station-node::after {
-            background-color: #fff;
         }
 
         .task-label {
@@ -888,21 +846,18 @@
 
             <!-- LEFT PROFILE PAGE (Identity/Personal Card) -->
             <div class="passport-left">
-                <!-- Compass Rose Watermark background left -->
-                <svg class="compass-watermark-left" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="0.5" fill="none" stroke-dasharray="1 3"/>
-                    <path d="M50 5 L53 47 L95 50 L53 53 L50 95 L47 53 L5 50 L47 47 Z" fill="none" stroke="currentColor" stroke-width="0.75" />
-                    <path d="M50 18 L51.5 48.5 L82 50 L51.5 51.5 L50 82 L48.5 51.5 L18 50 L48.5 48.5 Z" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="0.5" />
-                    <text x="50" y="14" font-size="8" text-anchor="middle" font-family="'Montserrat'" font-weight="bold">N</text>
-                    <text x="50" y="93" font-size="8" text-anchor="middle" font-family="'Montserrat'" font-weight="bold">S</text>
-                </svg>
-
-                <!-- Vintage transit oval stamp in background -->
-                <svg class="vintage-stamp-left-1" viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="22" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2" fill="none" />
-                    <text x="50" y="20" font-size="6" text-anchor="middle" font-family="'Montserrat'" font-weight="bold" fill="currentColor">FRANKFURT</text>
-                    <text x="50" y="29" font-size="5" text-anchor="middle" font-family="'Montserrat'" fill="currentColor">TRANSIT 2026</text>
-                    <text x="50" y="37" font-size="5" text-anchor="middle" font-family="'Caveat'" fill="currentColor">Gültig</text>
+                <!-- Compass Rose Background Watermark -->
+                <svg class="left-bg-watermark" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="4 4" />
+                    <path d="M100 10 L100 190 M10 L100 190 L100" stroke="currentColor" stroke-width="0.5" />
+                    <polygon points="100,20 108,100 100,108" fill="currentColor" />
+                    <polygon points="100,20 92,100 100,108" fill="none" stroke="currentColor" />
+                    <polygon points="100,180 108,100 100,92" fill="currentColor" />
+                    <polygon points="100,180 92,100 100,92" fill="none" stroke="currentColor" />
+                    <polygon points="180,100 100,108 92,100" fill="currentColor" />
+                    <polygon points="180,100 100,92 92,100" fill="none" stroke="currentColor" />
+                    <polygon points="20,100 100,108 108,100" fill="currentColor" />
+                    <polygon points="20,100 100,92 108,100" fill="none" stroke="currentColor" />
                 </svg>
 
                 <!-- Retro Circle Stamp Seal -->
@@ -925,11 +880,7 @@
                 </div>
 
                 <div class="passenger-details">
-                    <h3 class="passenger-header-title">
-                        <!-- Passport Mini Icon -->
-                        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm3 10H10v-1.43c0-1.33 2.67-2 4-2s4 .67 4 2V16z"/></svg>
-                        Reisedaten
-                    </h3>
+                    <h3 class="passenger-header-title">Reisedaten</h3>
                     
                     <div class="detail-row">
                         <span class="detail-label">Họ và tên / Name</span>
@@ -961,6 +912,11 @@
                         <span class="detail-val">Vietnamesisch</span>
                     </div>
 
+                    <!-- Left page margin note -->
+                    <div class="handwritten-note" style="bottom: 120px; left: 180px; font-size: 1.1rem; color: var(--ink-red);">
+                        Gute Reise! ✈
+                    </div>
+
                     <div class="detail-row" style="margin-top: 15px;">
                         <span class="detail-label">Ngoại ngữ / Languages</span>
                         <div class="lang-item">
@@ -988,22 +944,22 @@
             <!-- RIGHT DIARY PAGE (Visas / Journey Stamps / Projects) -->
             <div class="passport-right" id="diaryRight">
                 
-                <!-- Compass Rose Watermark background right -->
-                <svg class="compass-watermark-right" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="0.5" fill="none" stroke-dasharray="1 3"/>
-                    <path d="M50 5 L53 47 L95 50 L53 53 L50 95 L47 53 L5 50 L47 47 Z" fill="none" stroke="currentColor" stroke-width="0.75" />
-                    <path d="M50 18 L51.5 48.5 L82 50 L51.5 51.5 L50 82 L48.5 51.5 L18 50 L48.5 48.5 Z" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="0.5" />
-                    <text x="50" y="14" font-size="8" text-anchor="middle" font-family="'Montserrat'" font-weight="bold">N</text>
+                <!-- BACKGROUND DECORATIONS (To prevent empty white spots) -->
+                <!-- Coffee Ring Stain Watermark -->
+                <svg class="coffee-stain-decor" viewBox="0 0 100 100">
+                    <path d="M 50 10 A 38 38 0 1 0 78 80 A 38 38 0 1 0 50 10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="120 4 80 5" fill="none" style="color: #614e3f;"/>
+                    <path d="M 54 13 A 35 35 0 1 0 74 77" stroke="currentColor" stroke-width="0.8" fill="none" style="color: #614e3f;"/>
                 </svg>
 
-                <!-- Vintage Departure Flat Stamp -->
-                <svg class="vintage-stamp-right-flat" viewBox="0 0 100 50">
-                    <rect x="5" y="5" width="90" height="40" rx="4" ry="4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="8 2" />
-                    <text x="50" y="20" font-size="7" text-anchor="middle" font-family="'Montserrat'" font-weight="bold" fill="currentColor">HANOI DEPARTURE</text>
-                    <text x="50" y="32" font-size="6" text-anchor="middle" font-family="'Montserrat'" fill="currentColor">GATE 1A - 2026</text>
-                    <line x1="15" y1="38" x2="85" y2="38" stroke="currentColor" stroke-width="0.5" />
+                <!-- Dotted Flight Trail Path stretching vertically -->
+                <svg class="flight-trail-decor" viewBox="0 0 400 1600" preserveAspectRatio="none">
+                    <path d="M 300 20 Q 380 150 150 300 T 250 700 T 50 1100 T 280 1500" fill="none" stroke="var(--gold-accent)" stroke-width="1.5" stroke-dasharray="6 6" />
+                    <!-- Tiny planes along path -->
+                    <path d="M 150 300 L 145 292 L 150 295 L 155 292 Z" fill="var(--gold-accent)" transform="rotate(-40 150 300) scale(1.5)" />
+                    <path d="M 250 700 L 245 692 L 250 695 L 255 692 Z" fill="var(--gold-accent)" transform="rotate(30 250 700) scale(1.5)" />
+                    <path d="M 50 1100 L 45 1092 L 50 1095 L 55 1092 Z" fill="var(--gold-accent)" transform="rotate(-65 50 1100) scale(1.5)" />
                 </svg>
-                
+
                 <!-- BOARDING PASS NAV TICKET -->
                 <div class="boarding-pass-nav">
                     <div class="bp-ticket-info">
@@ -1027,14 +983,16 @@
                     </div>
                 </div>
 
+                <!-- Handwritten notes in margins -->
+                <div class="handwritten-note" style="top: 15px; right: 20px;">
+                    "Tag 1: Anfang..."
+                </div>
+
                 <!-- 1. INTRO SECTION (Trang Giới Thiệu) -->
                 <section class="journey-section" id="intro">
                     <div class="section-header">
                         <div class="section-title-box">
-                            <span class="section-num">
-                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                01 / Vorstellung
-                            </span>
+                            <span class="section-num">01 / Vorstellung</span>
                             <h2 class="section-title-vn">Lời ngỏ Hành Trình</h2>
                             <p class="section-title-de">Willkommen zu meiner Reise</p>
                         </div>
@@ -1059,14 +1017,15 @@
                     </div>
                 </section>
 
+                <div class="handwritten-note" style="top: 420px; left: 40px; color: var(--ink-red);">
+                    Lưu bút đại học...
+                </div>
+
                 <!-- 2. PROJECTS SECTION (Trang Dự Án) -->
                 <section class="journey-section" id="projects">
                     <div class="section-header">
                         <div class="section-title-box">
-                            <span class="section-num">
-                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/></svg>
-                                02 / Projekte
-                            </span>
+                            <span class="section-num">02 / Projekte</span>
                             <h2 class="section-title-vn">Hành Trình Dự Án</h2>
                             <p class="section-title-de">Haltestellen des Lernens</p>
                         </div>
@@ -1081,131 +1040,164 @@
                     </div>
 
                     <div class="section-intro-text">
-                        Mỗi bài tập nhỏ dưới đây được thiết kế như một "Điểm dừng chân" (Haltestelle). Tại đây, tôi thu hoạch được những khối kiến thức công nghệ quý báu để chuyển hóa hành trình học tập ngôn ngữ của mình.
+                        Mỗi bài tập nhỏ dưới đây được thiết kế như một "Điểm dừng chân" (Haltestelle) [4]. Tại đây, tôi thu hoạch được những khối kiến thức công nghệ quý báu để chuyển hóa hành trình học tập ngôn ngữ của mình.
                     </div>
 
-                    <!-- FLIGHT PATH CONNECTED TIMELINE -->
-                    <div class="projects-timeline">
-
-                        <!-- STOP 1 -->
-                        <div class="task-card" style="margin-bottom: 40px;">
-                            <div class="station-node"></div>
-                            <span class="section-num" style="font-size:0.7rem;">Station 1 / Quản lý tệp tin</span>
-                            <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Thao Tác Cơ Bản & Tổ Chức Thư Mục</h4>
-                            <p class="task-desc"><strong>Mục tiêu:</strong> Tối ưu cấu trúc thư mục máy tính cá nhân để quản lý tài liệu học tập một cách khoa học, chuyên nghiệp, tránh thất lạc tư liệu.</p>
-                            
-                            <p class="task-desc"><strong>Thực hiện:</strong> Thiết lập cây thư mục học tập logic theo học kỳ và môn học. Áp dụng quy tắc đặt tên file nghiêm ngặt: <code>[MaMon]_[HocKy]_[TenFile]_[MSSV]</code>.</p>
-                            
-                            <div class="evidence-gallery">
-                                <div class="evidence-polaroid" onclick="showEvidence('Cấu Trúc Thư Mục', 'Đã phân tách mạch lạc giữa các học kỳ (Semester 1, Semester 2), các môn học công nghệ, kỹ năng tiếng Đức. File được lưu trữ định dạng chuẩn hóa giúp công cụ tìm kiếm hệ thống truy xuất lập tức trong 1 giây.')">
-                                    <div class="evidence-img-placeholder">📂 Xem sơ đồ cây thư mục</div>
-                                    <div class="evidence-caption">Folder Tree System</div>
-                                </div>
+                    <!-- STOP 1 -->
+                    <div class="task-card" style="margin-bottom: 45px;">
+                        <!-- Mini stamp inside the card to break emptiness -->
+                        <div style="position: absolute; top: 15px; right: 15px; opacity: 0.15; pointer-events: none;">
+                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="var(--mocha-dark)">
+                                <circle cx="50" cy="50" r="40" stroke-width="2" stroke-dasharray="5 5" />
+                                <text x="50" y="55" font-size="12" text-anchor="middle" font-family="'Montserrat'" font-weight="bold">FILE ok</text>
+                            </svg>
+                        </div>
+                        <span class="section-num" style="font-size:0.7rem;">Station 1 / Quản lý tệp tin</span>
+                        <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Thao Tác Cơ Bản & Tổ Chức Thư Mục</h4>
+                        <p class="task-desc"><strong>Mục tiêu:</strong> Tối ưu cấu trúc thư mục máy tính cá nhân để quản lý tài liệu học tập một cách khoa học, chuyên nghiệp, tránh thất lạc tư liệu.</p>
+                        
+                        <p class="task-desc"><strong>Thực hiện:</strong> Thiết lập cây thư mục học tập logic theo học kỳ và môn học. Áp dụng quy tắc đặt tên file nghiêm ngặt: <code>[MaMon]_[HocKy]_[TenFile]_[MSSV]</code>.</p>
+                        
+                        <div class="evidence-gallery">
+                            <div class="evidence-polaroid" onclick="showEvidence('Cấu Trúc Thư Mục', 'Đã phân tách mạch lạc giữa các học kỳ (Semester 1, Semester 2), các môn học công nghệ, kỹ năng tiếng Đức. File được lưu trữ định dạng chuẩn hóa giúp công cụ tìm kiếm hệ thống truy xuất lập tức trong 1 giây.')">
+                                <div class="evidence-img-placeholder">📂 Xem sơ đồ cây thư mục</div>
+                                <div class="evidence-caption">Folder Tree System</div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- STOP 2 -->
-                        <div class="task-card" style="margin-bottom: 40px;">
-                            <div class="station-node"></div>
-                            <span class="section-num" style="font-size:0.7rem;">Station 2 / Tra cứu khoa học</span>
-                            <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Tìm Kiếm & Đánh Giá Thông Tin Học Thuật</h4>
-                            <p class="task-desc"><strong>Mục tiêu:</strong> Khai thác học liệu học thuật đáng tin cậy phục vụ nghiên cứu ngôn ngữ Đức bằng cách sử dụng công cụ tìm kiếm nâng cao.</p>
-                            
-                            <p class="task-desc"><strong>Thực hiện:</strong> Ứng dụng các toán tử tìm kiếm chuyên biệt như <code>"Goethe Institut" filetype:pdf site:edu</code> để chắt lọc những giáo trình từ các tổ chức uy tín. Lập bảng thẩm định độ tin cậy dựa trên tiêu chuẩn CRAAP.</p>
+                    <div class="handwritten-note" style="transform: rotate(5deg); right: 30px; margin-top: -30px; font-size: 1.25rem;">
+                        "Sehr ordentlich!" ✔
+                    </div>
 
-                            <div class="compare-container">
-                                <div class="compare-box before">
-                                    <div class="compare-header">Tìm kiếm thông thường</div>
-                                    <span style="font-size:0.75rem">Nhập từ khóa "tài liệu học tiếng Đức" tràn lan trên Google, dẫn đến các trang blog quảng cáo, kém chất lượng và thiếu kiểm chứng.</span>
-                                </div>
-                                <div class="compare-box after">
-                                    <div class="compare-header font-weight-bold">Toán tử tối ưu</div>
-                                    <span style="font-size:0.75rem"><code>"DaF" OR "Deutsch" filetype:pdf site:de</code>: Chỉ trích xuất các tài liệu giảng dạy chính quy định dạng PDF từ tên miền nước Đức.</span>
-                                </div>
+                    <!-- STOP 2 -->
+                    <div class="task-card" style="margin-bottom: 45px;">
+                        <span class="section-num" style="font-size:0.7rem;">Station 2 / Tra cứu khoa học</span>
+                        <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Tìm Kiếm & Đánh Giá Thông Tin Học Thuật</h4>
+                        <p class="task-desc"><strong>Mục tiêu:</strong> Khai thác học liệu học thuật đáng tin cậy phục vụ nghiên cứu ngôn ngữ Đức bằng cách sử dụng công cụ tìm kiếm nâng cao.</p>
+                        
+                        <p class="task-desc"><strong>Thực hiện:</strong> Ứng dụng các toán tử tìm kiếm chuyên biệt như <code>"Goethe Institut" filetype:pdf site:edu</code> để chắt lọc những giáo trình từ các tổ chức uy tín. Lập bảng thẩm định độ tin cậy dựa trên tiêu chuẩn CRAAP.</p>
+
+                        <div class="compare-container">
+                            <div class="compare-box before">
+                                <div class="compare-header">Tìm kiếm thông thường</div>
+                                <span style="font-size:0.75rem">Nhập từ khóa "tài liệu học tiếng Đức" tràn lan trên Google, dẫn đến các trang bài viết quảng cáo, kém chất lượng và thiếu kiểm chứng.</span>
+                            </div>
+                            <div class="compare-box after">
+                                <div class="compare-header font-weight-bold">Toán tử tối ưu</div>
+                                <span style="font-size:0.75rem"><code>"DaF" OR "Deutsch" filetype:pdf site:de</code>: Chỉ trích xuất các tài liệu giảng dạy chính quy định dạng PDF từ tên miền nước Đức.</span>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- STOP 3 -->
-                        <div class="task-card" style="margin-bottom: 40px;">
-                            <div class="station-node"></div>
-                            <span class="section-num" style="font-size:0.7rem;">Station 3 / Prompt Engineering</span>
-                            <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Thiết Kế Prompt AI Hiệu Quả</h4>
-                            <p class="task-desc"><strong>Mục tiêu:</strong> Biến AI thành một đối tác học tập thực thụ, hỗ trợ luyện viết và phản biện ngôn ngữ chuyên sâu.</p>
-                            
-                            <p class="task-desc"><strong>Thực hiện:</strong> So sánh hiệu quả phản hồi của AI khi nhận lệnh cơ bản và khi sử dụng Prompt cải tiến áp dụng công thức ROLE - TASK - CONTEXT - CONSTRAINT.</p>
+                    <!-- STOP 3 -->
+                    <div class="task-card" style="margin-bottom: 45px;">
+                        <!-- Retro Postcard Stamp graphic watermark on empty side -->
+                        <div style="position: absolute; top: 15px; right: 15px; opacity: 0.15; pointer-events: none;">
+                            <svg width="70" height="50" viewBox="0 0 100 70" fill="none" stroke="var(--ink-blue)">
+                                <rect x="5" y="5" width="90" height="60" stroke-width="2" stroke-dasharray="3 3"/>
+                                <line x1="5" y1="20" x2="95" y2="20" stroke-width="1"/>
+                                <text x="50" y="45" font-size="10" text-anchor="middle" font-family="'Montserrat'" font-weight="bold">AI PROMPT</text>
+                                <text x="50" y="58" font-size="6" text-anchor="middle" font-family="'Montserrat'">VERIFIED</text>
+                            </svg>
+                        </div>
+                        <span class="section-num" style="font-size:0.7rem;">Station 3 / Prompt Engineering</span>
+                        <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Thiết Kế Prompt AI Hiệu Quả</h4>
+                        <p class="task-desc"><strong>Mục tiêu:</strong> Biến AI thành một đối tác học tập thực thụ, hỗ trợ luyện viết và phản biện ngôn ngữ chuyên sâu.</p>
+                        
+                        <p class="task-desc"><strong>Thực hiện:</strong> So sánh hiệu quả phản hồi của AI khi nhận lệnh cơ bản và khi sử dụng Prompt cải tiến áp dụng công thức ROLE - TASK - CONTEXT - CONSTRAINT.</p>
 
-                            <div class="compare-container">
-                                <div class="compare-box before">
-                                    <div class="compare-header">Prompt Ban Đầu</div>
-                                    <span style="font-size:0.75rem">"Dịch hộ đoạn văn này sang tiếng Đức."</span>
-                                </div>
-                                <div class="compare-box after">
-                                    <div class="compare-header">Prompt Cải Tiến</div>
-                                    <span style="font-size:0.75rem">"Bạn là chuyên gia dịch thuật Đức - Việt. Hãy dịch đoạn văn văn học sau sang tiếng Đức với văn phong cổ điển, giải thích 3 cấu trúc ngữ pháp phức tạp và gợi ý từ đồng nghĩa."</span>
-                                </div>
+                        <div class="compare-container">
+                            <div class="compare-box before">
+                                <div class="compare-header">Prompt Ban Đầu</div>
+                                <span style="font-size:0.75rem">"Dịch hộ đoạn văn này sang tiếng Đức."</span>
+                            </div>
+                            <div class="compare-box after">
+                                <div class="compare-header">Prompt Cải Tiến</div>
+                                <span style="font-size:0.75rem">"Bạn là chuyên gia dịch thuật Đức - Việt. Hãy dịch đoạn văn văn học sau sang tiếng Đức với văn phong cổ điển, giải thích 3 cấu trúc ngữ pháp phức tạp và gợi ý từ đồng nghĩa."</span>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- STOP 4 -->
-                        <div class="task-card" style="margin-bottom: 40px;">
-                            <div class="station-node"></div>
-                            <span class="section-num" style="font-size:0.7rem;">Station 4 / Cộng tác số</span>
-                            <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Cộng Tác Trực Tuyến & Quản Lý Dự Án</h4>
-                            <p class="task-desc"><strong>Mục tiêu:</strong> Vận hành phối hợp nhóm hiệu quả trên không gian số để hoàn thành bài thuyết trình văn hóa Đức.</p>
-                            
-                            <p class="task-desc"><strong>Thực hiện:</strong> Thiết lập bảng Kanban trên Notion, hoạch định rõ ràng trách nhiệm của từng thành viên, thời hạn hoàn thành và biểu đồ tiến trình trực quan.</p>
+                    <div class="handwritten-note" style="left: 20px; margin-top: -15px; color: var(--ink-blue); transform: rotate(-3deg);">
+                        "KI ist wunderbar!"
+                    </div>
 
-                            <div class="evidence-gallery">
-                                <div class="evidence-polaroid" onclick="showEvidence('Notion Workspace', 'Không gian Notion nhóm được phân công khoa học: Trạng thái To-Do, In-Progress, Done cập nhật thời gian thực. Giúp tối giản 90% việc họp thảo luận rườm rà và tăng hiệu suất đồng đội rõ rệt.')">
-                                    <div class="evidence-img-placeholder">📋 Trực quan hóa Notion Kanban</div>
-                                    <div class="evidence-caption">Notion Board</div>
-                                </div>
+                    <!-- STOP 4 -->
+                    <div class="task-card" style="margin-bottom: 45px;">
+                        <span class="section-num" style="font-size:0.7rem;">Station 4 / Cộng tác số</span>
+                        <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Cộng Tác Trực Tuyến & Quản Lý Dự Án</h4>
+                        <p class="task-desc"><strong>Mục tiêu:</strong> Vận hành phối hợp nhóm hiệu quả trên không gian số để hoàn thành bài thuyết trình văn hóa Đức.</p>
+                        
+                        <p class="task-desc"><strong>Thực hiện:</strong> Thiết lập bảng Kanban trên Notion, hoạch định rõ ràng trách nhiệm của từng thành viên, thời hạn hoàn thành và biểu đồ tiến trình trực quan.</p>
+
+                        <div class="evidence-gallery">
+                            <div class="evidence-polaroid" onclick="showEvidence('Notion Workspace', 'Không gian Notion nhóm được phân công khoa học: Trạng thái To-Do, In-Progress, Done cập nhật thời gian thực. Giúp tối giản 90% việc họp thảo luận rườm rà và tăng hiệu suất đồng đội rõ rệt.')">
+                                <div class="evidence-img-placeholder">📋 Trực quan hóa Notion Kanban</div>
+                                <div class="evidence-caption">Notion Board</div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- STOP 5 -->
-                        <div class="task-card" style="margin-bottom: 40px;">
-                            <div class="station-node"></div>
-                            <span class="section-num" style="font-size:0.7rem;">Station 5 / Sáng tạo nội dung</span>
-                            <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Sáng Tạo Nội Dung Bằng Trí Tuệ Nhân Tạo</h4>
-                            <p class="task-desc"><strong>Mục tiêu:</strong> Ứng dụng Generative AI tạo sinh (Canva AI, Midjourney) hỗ trợ sản xuất ấn phẩm quảng bá văn hóa Đức một cách chuyên nghiệp.</p>
-                            
-                            <p class="task-desc"><strong>Thực hiện:</strong> Sử dụng AI tạo lập kịch bản nội dung và hỗ trợ phác thảo hình ảnh cho Infographic "Lễ hội bia Oktoberfest". Con người đóng vai trò tư duy định hướng thẩm mỹ và biên tập cốt lõi.</p>
+                    <!-- Visual divider stamp to break empty space before Stop 5 -->
+                    <div style="display: flex; justify-content: center; margin: 30px 0; opacity: 0.25;">
+                        <svg width="180" height="40" viewBox="0 0 180 40">
+                            <line x1="10" y1="20" x2="70" y2="20" stroke="var(--mocha-medium)" stroke-dasharray="4 4" />
+                            <circle cx="90" cy="20" r="10" fill="none" stroke="var(--mocha-medium)" stroke-width="1" />
+                            <polygon points="90,15 93,23 87,23" fill="var(--mocha-medium)" />
+                            <line x1="110" y1="20" x2="170" y2="20" stroke="var(--mocha-medium)" stroke-dasharray="4 4" />
+                        </svg>
+                    </div>
 
-                            <div class="evidence-gallery">
-                                <div class="evidence-polaroid" onclick="showEvidence('Tác Phẩm Văn Hóa Đức', 'Infographic được thiết kế phối màu ấm vintage, kết hợp giữa hình ảnh nghệ thuật tạo sinh của AI tái hiện không khí lễ hội Oktoberfest cổ điển và phần nội dung song ngữ Đức - Việt chuẩn xác.')">
-                                    <div class="evidence-img-placeholder">🇩🇪 Ấn Phẩm Lễ Hội Oktoberfest</div>
-                                    <div class="evidence-caption">Oktoberfest Infographic</div>
-                                </div>
+                    <!-- STOP 5 -->
+                    <div class="task-card" style="margin-bottom: 45px;">
+                        <span class="section-num" style="font-size:0.7rem;">Station 5 / Sáng tạo nội dung</span>
+                        <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Sáng Tạo Nội Dung Bằng Trí Tuệ Nhân Tạo</h4>
+                        <p class="task-desc"><strong>Mục tiêu:</strong> Ứng dụng Generative AI tạo sinh (Canva AI, Midjourney) hỗ trợ sản xuất ấn phẩm quảng bá văn hóa Đức một cách chuyên nghiệp.</p>
+                        
+                        <p class="task-desc"><strong>Thực hiện:</strong> Sử dụng AI tạo lập kịch bản nội dung và hỗ trợ phác thảo hình ảnh cho Infographic "Lễ hội bia Oktoberfest". Con người đóng vai trò tư duy định hướng thẩm mỹ và biên tập cốt lõi.</p>
+
+                        <div class="evidence-gallery">
+                            <div class="evidence-polaroid" onclick="showEvidence('Tác Phẩm Văn Hóa Đức', 'Infographic được thiết kế phối màu ấm vintage, kết hợp giữa hình ảnh nghệ thuật tạo sinh của AI tái hiện không khí lễ hội Oktoberfest cổ điển và phần nội dung song ngữ Đức - Việt chuẩn xác.')">
+                                <div class="evidence-img-placeholder">🇩🇪 Ấn Phẩm Lễ Hội Oktoberfest</div>
+                                <div class="evidence-caption">Oktoberfest Infographic</div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- STOP 6 -->
-                        <div class="task-card">
-                            <div class="station-node"></div>
-                            <span class="section-num" style="font-size:0.7rem;">Station 6 / Đạo đức công nghệ</span>
-                            <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Sử Dụng AI Có Trách Nhiệm</h4>
-                            <p class="task-desc"><strong>Mục tiêu:</strong> Kiến tạo bộ quy tắc liêm chính học thuật cá nhân khi ứng dụng trí tuệ nhân tạo trong học tập tại ULIS.</p>
-                            
-                            <p class="task-desc"><strong>Thực hiện:</strong> Đề xuất 5 nguyên tắc đạo đức cốt lõi nhằm định vị AI là "người trợ lý hỗ trợ tăng tốc" chứ không phải "kẻ viết thay" làm triệt tiêu khả năng phản biện độc lập.</p>
-
-                            <ul class="reflex-list">
-                                <li><strong>Minh bạch (Transparency):</strong> Luôn chủ động khai báo rõ ràng các phần nội dung có sự tham khảo, hỗ trợ từ các công cụ AI tạo sinh.</li>
-                                <li><strong>Độc lập (Critical Evaluation):</strong> Mọi phản hồi của AI luôn được kiểm chứng chéo trước khi đưa vào bài học thuật nhằm tránh hiện tượng "ảo tưởng" dữ liệu.</li>
-                            </ul>
+                    <!-- STOP 6 -->
+                    <div class="task-card">
+                        <!-- Retro circular stamp graphic watermark -->
+                        <div style="position: absolute; bottom: 15px; right: 15px; opacity: 0.15; pointer-events: none;">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="var(--ink-red)">
+                                <circle cx="50" cy="50" r="35" stroke-width="1.5" />
+                                <text x="50" y="45" font-size="8" text-anchor="middle" font-family="'Montserrat'" font-weight="bold">ETHICS</text>
+                                <text x="50" y="58" font-size="6" text-anchor="middle" font-family="'Montserrat'">GUARANTEED</text>
+                                <line x1="15" y1="50" x2="85" y2="50" stroke-dasharray="2 2" />
+                            </svg>
                         </div>
+                        <span class="section-num" style="font-size:0.7rem;">Station 6 / Đạo đức công nghệ</span>
+                        <h4 style="font-family:'EB Garamond'; font-size:1.3rem; margin-bottom: 8px;">Sử Dụng AI Có Trách Nhiệm</h4>
+                        <p class="task-desc"><strong>Mục tiêu:</strong> Kiến tạo bộ quy tắc liêm chính học thuật cá nhân khi ứng dụng trí tuệ nhân tạo trong học tập tại ULIS [4].</p>
+                        
+                        <p class="task-desc"><strong>Thực hiện:</strong> Đề xuất 5 nguyên tắc đạo đức cốt lõi nhằm định vị AI là "người trợ lý hỗ trợ tăng tốc" chứ không phải "kẻ viết thay" làm triệt tiêu khả năng phản biện độc lập.</p>
 
+                        <ul class="reflex-list">
+                            <li><strong>Minh bạch (Transparency):</strong> Luôn chủ động khai báo rõ ràng các phần nội dung có sự tham khảo, hỗ trợ từ các công cụ AI tạo sinh.</li>
+                            <li><strong>Độc lập (Critical Evaluation):</strong> Mọi phản hồi của AI luôn được kiểm chứng chéo trước khi đưa vào bài học thuật nhằm tránh hiện tượng "ảo tưởng" dữ liệu.</li>
+                        </ul>
                     </div>
                 </section>
+
+                <div class="handwritten-note" style="left: 30px; margin-top: -20px; font-size: 1.25rem; color: var(--sage-green);">
+                    Hành trình hoàn tất! 🏁
+                </div>
 
                 <!-- 3. CONCLUSION SECTION (Trang Tổng Kết) -->
                 <section class="journey-section" id="conclusion">
                     <div class="section-header">
                         <div class="section-title-box">
-                            <span class="section-num">
-                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                                03 / Fazit & Reflexion
-                            </span>
+                            <span class="section-num">03 / Fazit & Reflexion</span>
                             <h2 class="section-title-vn">Tổng Kết Hành Trình</h2>
                             <p class="section-title-de">Abschluss der Reise</p>
                         </div>
@@ -1219,7 +1211,7 @@
                     </div>
 
                     <div class="section-intro-text">
-                        Khi lật những trang cuối cùng của cuốn <em>"Mein Reisepass"</em> này, tôi nhận thấy đây không đơn giản chỉ là một bài tập học thuật đơn thuần, mà là hành trình tự nâng cấp tư duy số của bản thân. 
+                        Khi lật những trang cuối cùng của cuốn <em>"Mein Reisepass"</em> này, tôi nhận thấy đây không đơn giản chỉ là một bài tập học thuật đơn thuần, mà là hành trình tự nâng cấp tư duy số của bản thân.
                     </div>
 
                     <div class="task-grid">
@@ -1238,7 +1230,7 @@
 
         <!-- FOOTER -->
         <footer>
-            <p>© 2026 Đặng Bảo Ngọc - 25041946. Thiết kế lấy cảm hứng từ "Mein Reisepass" để phục vụ mục đích học tập phi lợi nhuận.</p>
+            <p>© 2026 Đặng Bảo Ngọc - 25041946. Thiết kế lấy cảm hứng từ "Mein Reisepass" để phục vụ mục đích học tập phi lợi nhuận [1, 2, 3].</p>
         </footer>
     </div>
 
