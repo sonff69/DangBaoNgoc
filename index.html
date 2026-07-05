@@ -140,14 +140,15 @@
     }
   </style>
 </head>
-<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-6 overflow-x-hidden relative">
+<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-5 overflow-hidden relative">
 
   <!-- Máy bay giấy chuyển động dạng hoạt họa -->
   <div id="paper-plane" class="fixed pointer-events-none z-50 text-vintage-olive opacity-0" style="left: 0; top: 50%;">
     <i class="fa-solid fa-paper-plane text-4xl"></i>
   </div>
 
-  <div class="w-full max-w-6xl passport-book relative h-auto min-h-[500px] lg:h-[640px] flex items-center justify-center">
+  <!-- CONTAINER CHÍNH: Tự động tính toán thích ứng kích thước cửa sổ trình duyệt -->
+  <div class="w-full lg:w-[94vw] xl:w-[88vw] max-w-[1320px] passport-book relative h-auto min-h-[520px] lg:h-[82vh] lg:max-h-[720px] lg:min-h-[580px] flex items-center justify-center transition-all duration-300">
     
     <!-- ==================== COVER PAGE (BÌA HỘ CHIẾU) ==================== -->
     <div id="passport-cover" class="absolute w-full max-w-[480px] h-[580px] bg-gradient-to-br from-[#1c2e24] to-[#2b4133] border-4 border-vintage-gold rounded-2xl shadow-2xl z-30 flex flex-col justify-between p-8 text-center passport-cover overflow-hidden">
@@ -186,23 +187,23 @@
     <div id="inner-journal" class="hidden w-full h-full bg-[#fbf9f5] border-2 border-vintage-mocha/30 rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 z-20 transition-all duration-500">
       
       <!-- CỘT TRÁI (BOARDING PASS, ẢNH ĐẠI DIỆN & CHỈ MỤC HÀNH TRÌNH) -->
-      <div class="lg:col-span-4 bg-vintage-beige/60 border-b lg:border-b-0 lg:border-r border-vintage-mocha/30 p-4 md:p-5 flex flex-col justify-between overflow-y-auto">
+      <div class="lg:col-span-4 bg-vintage-beige/60 border-b lg:border-b-0 lg:border-r border-vintage-mocha/30 p-4 md:p-6 flex flex-col justify-between overflow-y-auto">
         <div>
           <!-- Tiêu đề Boarding Pass -->
-          <div class="flex justify-between items-center border-b-2 border-dashed border-vintage-mocha/40 pb-3 mb-3">
+          <div class="flex justify-between items-center border-b-2 border-dashed border-vintage-mocha/40 pb-4 mb-4">
             <div>
-              <p class="font-cinzel text-[9px] tracking-widest text-vintage-mocha font-bold uppercase">BOARDING PASS</p>
-              <h2 class="font-cinzel text-sm font-bold text-vintage-olive">HÀNH TRÌNH K25</h2>
+              <p class="font-cinzel text-[10px] tracking-widest text-vintage-mocha font-bold uppercase">BOARDING PASS</p>
+              <h2 class="font-cinzel text-base font-bold text-vintage-olive">HÀNH TRÌNH K25</h2>
             </div>
-            <div class="text-vintage-olive text-xl">
+            <div class="text-vintage-olive text-2xl">
               <i class="fa-solid fa-plane-departure"></i>
             </div>
           </div>
 
           <!-- Thông tin cá nhân & Ảnh đại diện (Hình 1.jpg) -->
-          <div class="bg-vintage-cream/80 p-3 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-3">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-14 h-16 border border-vintage-mocha/50 rounded-md overflow-hidden bg-vintage-paper shadow-inner flex-shrink-0">
+          <div class="bg-vintage-cream/80 p-4 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-4">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-16 h-20 border-2 border-vintage-mocha/50 rounded-md overflow-hidden bg-vintage-paper shadow-inner flex-shrink-0">
                 <img src="Hình 1.jpg" alt="Ảnh đại diện Đặng Bảo Ngọc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200';">
               </div>
               <div>
@@ -303,7 +304,7 @@
         </div>
       </div>
 
-      <!-- CỘT PHẢI (TRANG NỘI DUNG JOURNAL ĐỘNG - ĐÃ CO GỌN TRÁNH TRỐNG) -->
+      <!-- CỘT PHẢI (TRANG NỘI DUNG JOURNAL ĐỘNG) -->
       <div class="lg:col-span-8 p-4 md:p-6 overflow-y-auto max-h-[60vh] lg:max-h-full flex flex-col justify-between bg-white relative">
         <!-- Đường bay mờ nhạt làm hình nền -->
         <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
@@ -352,7 +353,7 @@
           </div>
 
           <!-- ==================== TRANG 01: THAO TÁC TỆP & THƯ MỤC ==================== -->
-          <div id="page-task1" class="page-content hidden fade-in-up">
+          <div id="page-task1" class="page-content fade-in-up">
             <div class="flex justify-between items-start mb-3">
               <div>
                 <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 01 • FILE MANAGEMENT SYSTEM</span>
@@ -692,7 +693,7 @@
 
             <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
               <p class="text-xs text-vintage-mocha">
-                Để bảo vệ liêm chính học thuật, tôi tuân thủ bộ 6 quy tắc ứng xử AI thiết kế bằng mã nguồn LaTeX TikZ trực quan [INDEX]:
+                Để bảo vệ liêm chính học thuật, tôi tuân bộ 6 quy tắc ứng xử AI thiết kế bằng mã nguồn LaTeX TikZ trực quan [INDEX]:
               </p>
 
               <!-- Widget tương tác: Quy tắc đạo đức -->
