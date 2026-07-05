@@ -1,1 +1,1067 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Reisepass - Đặng Bảo Ngọc Portfolio</title>
+  
+  <!-- Google Fonts với tiếng Việt hoàn chỉnh -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vintage: {
+              cream: '#f9f6f0',
+              beige: '#f2eae1',
+              paper: '#eae2d5',
+              mocha: '#8c7558',
+              charcoal: '#2e2d2c',
+              olive: '#4a5d4e',
+              gold: '#d4af37',
+              red: '#9e4a3b'
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            playfair: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Texture giấy nhẹ nhàng cho toàn trang */
+    .bg-paper-texture {
+      background-color: #f2eae1;
+      background-image: radial-gradient(rgba(140, 117, 88, 0.1) 1px, transparent 0),
+                        radial-gradient(rgba(140, 117, 88, 0.15) 1px, transparent 0);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 8px;
+    }
 
+    /* Hiệu ứng 3D mở hộ chiếu */
+    .passport-book {
+      perspective: 2000px;
+    }
+    .passport-cover {
+      transform-style: preserve-3d;
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: left center;
+    }
+    .passport-cover.opened {
+      transform: rotateY(-180deg) translateZ(1px);
+    }
+    
+    /* Con dấu Vintage phong cách Passport */
+    .vintage-stamp {
+      border: 3px double #8c7558;
+      border-radius: 50%;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-8deg);
+      transition: all 0.5s ease;
+    }
+    .vintage-stamp:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    /* Đường bay nét đứt */
+    .flight-path {
+      background-image: linear-gradient(to right, #8c7558 50%, rgba(255,255,255,0) 0%);
+      background-position: bottom;
+      background-size: 8px 2px;
+      background-repeat: repeat-x;
+    }
+
+    /* Tùy chỉnh thanh cuộn mang phong cách retro */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eae2d5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8c7558;
+      border-radius: 3px;
+    }
+
+    /* Hiệu ứng mờ dần khi chuyển trang */
+    .fade-in-up {
+      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hiệu ứng máy bay giấy chuyển động */
+    @keyframes flyAcross {
+      0% {
+        transform: translate(-100px, 100px) rotate(45deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(calc(100vw + 100px), -100px) rotate(15deg);
+        opacity: 0;
+      }
+    }
+    .paper-plane-active {
+      animation: flyAcross 1.5s ease-in-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-6 overflow-x-hidden relative">
+
+  <!-- Máy bay giấy chuyển động dạng hoạt họa -->
+  <div id="paper-plane" class="fixed pointer-events-none z-50 text-vintage-olive opacity-0" style="left: 0; top: 50%;">
+    <i class="fa-solid fa-paper-plane text-4xl"></i>
+  </div>
+
+  <div class="w-full max-w-6xl passport-book relative h-auto min-h-[500px] lg:h-[640px] flex items-center justify-center">
+    
+    <!-- ==================== COVER PAGE (BÌA HỘ CHIẾU) ==================== -->
+    <div id="passport-cover" class="absolute w-full max-w-[480px] h-[580px] bg-gradient-to-br from-[#1c2e24] to-[#2b4133] border-4 border-vintage-gold rounded-2xl shadow-2xl z-30 flex flex-col justify-between p-8 text-center passport-cover overflow-hidden">
+      <!-- Texture bìa giả da sang trọng -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      
+      <div class="flex flex-col items-center">
+        <span class="text-vintage-gold font-cinzel tracking-[0.3em] text-xs uppercase mb-2">Đại học Quốc gia Hà Nội</span>
+        <span class="text-vintage-gold font-cinzel tracking-[0.15em] text-sm uppercase font-semibold">Trường Đại học Ngoại ngữ</span>
+        <div class="w-16 h-[2px] bg-vintage-gold mt-2"></div>
+      </div>
+
+      <div class="my-auto flex flex-col items-center py-4">
+        <!-- Biểu tượng la bàn mạ vàng cổ điển -->
+        <div class="text-vintage-gold text-6xl mb-4 animate-pulse">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+        <h1 class="font-cinzel text-vintage-gold text-3xl font-bold tracking-[0.1em]">MEIN REISEPASS</h1>
+        <p class="font-playfair italic text-vintage-beige text-xs mt-2 opacity-80">Portfolio Hành Trình Số & Trí Tuệ Nhân Tạo</p>
+        <div class="mt-4 border border-vintage-gold/30 px-6 py-1.5 rounded bg-vintage-olive/40 backdrop-blur-sm">
+          <p class="text-vintage-gold text-xs font-mono tracking-widest">OWNER: ĐẶNG BẢO NGỌC</p>
+          <p class="text-vintage-beige/70 text-[9px] font-mono mt-0.5">MAJOR: GERMAN LANGUAGE & CULTURE</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <button onclick="openPassport()" class="px-8 py-2.5 bg-vintage-gold text-vintage-olive font-cinzel font-bold text-xs tracking-widest rounded-full shadow-lg hover:bg-white hover:text-vintage-olive transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+          <span>KHÁM PHÁ HÀNH TRÌNH</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <span class="text-vintage-gold/50 text-[10px] font-mono tracking-wider">K25 ULIS-VNU • EDTECH PORTFOLIO</span>
+      </div>
+    </div>
+
+    <!-- ==================== INNER JOURNAL (NỘI DUNG BÊN TRONG) ==================== -->
+    <div id="inner-journal" class="hidden w-full h-full bg-[#fbf9f5] border-2 border-vintage-mocha/30 rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 z-20 transition-all duration-500">
+      
+      <!-- CỘT TRÁI (BOARDING PASS, ẢNH ĐẠI DIỆN & CHỈ MỤC HÀNH TRÌNH) -->
+      <div class="lg:col-span-4 bg-vintage-beige/60 border-b lg:border-b-0 lg:border-r border-vintage-mocha/30 p-4 md:p-5 flex flex-col justify-between overflow-y-auto">
+        <div>
+          <!-- Tiêu đề Boarding Pass -->
+          <div class="flex justify-between items-center border-b-2 border-dashed border-vintage-mocha/40 pb-3 mb-3">
+            <div>
+              <p class="font-cinzel text-[9px] tracking-widest text-vintage-mocha font-bold uppercase">BOARDING PASS</p>
+              <h2 class="font-cinzel text-sm font-bold text-vintage-olive">HÀNH TRÌNH K25</h2>
+            </div>
+            <div class="text-vintage-olive text-xl">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+          </div>
+
+          <!-- Thông tin cá nhân & Ảnh đại diện (Hình 1.jpg) -->
+          <div class="bg-vintage-cream/80 p-3 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-3">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-14 h-16 border border-vintage-mocha/50 rounded-md overflow-hidden bg-vintage-paper shadow-inner flex-shrink-0">
+                <img src="Hình 1.jpg" alt="Ảnh đại diện Đặng Bảo Ngọc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200';">
+              </div>
+              <div>
+                <span class="text-[8px] uppercase font-mono text-vintage-mocha">HÀNH KHÁCH / PASSENGER</span>
+                <p class="font-bold text-xs text-vintage-charcoal font-playfair tracking-wide leading-none mt-0.5">ĐẶNG BẢO NGỌC</p>
+                <p class="font-bold font-mono text-[10px] text-vintage-mocha mt-1">MSSV: 25041946</p>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2 text-[9px] border-t border-dashed border-vintage-mocha/20 pt-1.5">
+              <div>
+                <span class="text-[8px] uppercase font-mono text-vintage-mocha">CHUYÊN NGÀNH</span>
+                <p class="font-bold text-vintage-olive leading-tight">Ngôn ngữ & VH Đức</p>
+              </div>
+              <div>
+                <span class="text-[8px] uppercase font-mono text-vintage-mocha">CƠ SỞ ĐÀO TẠO</span>
+                <p class="font-semibold leading-tight">ĐH Ngoại ngữ - ĐHQGHN</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nút truy cập thư mục Google Drive bài tập lớn -->
+          <div class="mb-3">
+            <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="w-full py-2 px-3 bg-vintage-gold text-vintage-olive border border-vintage-gold hover:bg-white hover:text-vintage-olive font-cinzel font-bold text-[9px] tracking-wider rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all duration-200">
+              <i class="fa-brands fa-google-drive text-xs"></i>
+              <span>XEM BÀI TẬP TRÊN GG DRIVE</span>
+            </a>
+          </div>
+
+          <!-- Danh sách điểm dừng chân (Menu điều hướng) -->
+          <nav class="space-y-0.5">
+            <p class="text-[9px] uppercase tracking-widest text-vintage-mocha font-bold mb-1.5 px-1">Các Chặng Hành Trình (Stops)</p>
+            
+            <button onclick="changePage('welcome')" id="nav-welcome" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 bg-vintage-olive text-white shadow-sm">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">00.</span> Giới Thiệu & Mục Tiêu
+              </span>
+              <i class="fa-solid fa-passport text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('task1')" id="nav-task1" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">01.</span> Thao tác tệp & Thư mục
+              </span>
+              <i class="fa-regular fa-folder text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('task2')" id="nav-task2" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">02.</span> Tìm kiếm học thuật
+              </span>
+              <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('task3')" id="nav-task3" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">03.</span> Prompt Engineering
+              </span>
+              <i class="fa-solid fa-terminal text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('task4')" id="nav-task4" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">04.</span> Cộng tác trực tuyến
+              </span>
+              <i class="fa-solid fa-users-viewfinder text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('task5')" id="nav-task5" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">05.</span> Sáng tạo với GenAI
+              </span>
+              <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('task6')" id="nav-task6" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">06.</span> Sử dụng AI trách nhiệm
+              </span>
+              <i class="fa-solid fa-scale-balanced text-[10px]"></i>
+            </button>
+
+            <button onclick="changePage('reflection')" id="nav-reflection" class="nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 hover:bg-vintage-mocha/10 text-vintage-charcoal">
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono opacity-80 text-[10px]">07.</span> Tổng kết & Đánh giá
+              </span>
+              <i class="fa-solid fa-star text-[10px]"></i>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Mã vạch và đóng hộ chiếu -->
+        <div class="mt-3 border-t border-dashed border-vintage-mocha/40 pt-2 text-center">
+          <p class="text-[8px] font-mono text-vintage-mocha tracking-widest mb-0.5">GATE K25 - PASSENGER ID: 25041946</p>
+          <button onclick="closePassport()" class="text-[10px] font-cinzel font-semibold text-vintage-red hover:underline block mx-auto flex items-center gap-1 justify-center">
+            <i class="fa-solid fa-folder-closed text-[9px]"></i> Gấp hộ chiếu lại
+          </button>
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI (TRANG NỘI DUNG JOURNAL ĐỘNG - ĐÃ CO GỌN TRÁNH TRỐNG) -->
+      <div class="lg:col-span-8 p-4 md:p-6 overflow-y-auto max-h-[60vh] lg:max-h-full flex flex-col justify-between bg-white relative">
+        <!-- Đường bay mờ nhạt làm hình nền -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
+          <i class="fa-solid fa-globe text-[240px] text-vintage-mocha"></i>
+        </div>
+
+        <!-- CONTAINER CHỨA CÁC TRANG CHUYỂN ĐỔI -->
+        <div id="pages-container" class="relative z-10 flex-grow">
+          
+          <!-- ==================== TRANG 00: GIỚI THIỆU & MỤC TIÊU ==================== -->
+          <div id="page-welcome" class="page-content fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG KHỞI HÀNH • DEPARTURE</span>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">00. Chuyến Bay Số Hiệu K25 ULIS</h3>
+              </div>
+              <div class="vintage-stamp stamp-approved w-14 h-14 text-[8px] text-vintage-olive flex flex-col justify-center">
+                <span>BERLIN</span>
+                <span class="font-mono text-[6px] border-t border-vintage-olive mt-[1px]">WILLKOMMEN</span>
+              </div>
+            </div>
+            
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal leading-relaxed">
+              <p class="italic text-vintage-mocha text-xs">
+                "Chào mừng bạn đến với cuốn Hộ chiếu Hành trình số của tôi. Tôi là Đặng Bảo Ngọc, sinh viên năm nhất ngành Ngôn ngữ Đức tại Đại học Ngoại ngữ - ĐHQGHN [INDEX]. Cuốn nhật ký hành trình số này phản ánh nỗ lực tự học, nâng cấp tư duy số hóa của tôi qua các bài tập thực nghiệm dự án cá nhân."
+              </p>
+              
+              <div class="bg-vintage-beige/30 p-3 rounded-xl border-l-4 border-vintage-olive">
+                <h4 class="font-semibold text-vintage-olive mb-0.5 text-xs"><i class="fa-solid fa-bullseye text-[10px]"></i> Mục tiêu học tập cá nhân</h4>
+                <p class="text-[11px] leading-relaxed">
+                  Xây dựng năng lực số vững vàng, thấu hiểu sâu sắc cách tối ưu hóa các dòng lệnh Trí tuệ nhân tạo (AI), tạo bước đệm hoàn hảo giúp bản thân đơn giản hóa các rào cản ngữ pháp tiếng Đức phức tạp [INDEX].
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+                <div class="border border-vintage-mocha/20 p-2.5 rounded-lg bg-vintage-cream/20">
+                  <h5 class="text-[11px] font-bold text-vintage-mocha uppercase mb-0.5"><i class="fa-solid fa-passport"></i> Mục đích Portfolio</h5>
+                  <p class="text-[11px] leading-snug">Số hóa các thành quả nghiên cứu học thuật, tự phản tích ưu nhược điểm cá nhân một cách nghiêm túc nhằm phục vụ lưu trữ lâu dài [INDEX].</p>
+                </div>
+                <div class="border border-vintage-mocha/20 p-2.5 rounded-lg bg-vintage-cream/20">
+                  <h5 class="text-[11px] font-bold text-vintage-mocha uppercase mb-0.5"><i class="fa-solid fa-route"></i> Hành trình tương lai</h5>
+                  <p class="text-[11px] leading-snug">Làm chủ công nghệ để đẩy nhanh tiến độ học tập, tự tin dịch thuật song ngữ Việt - Đức hiệu quả, hướng đến mục tiêu đạt C1 trong tương lai [INDEX].</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 01: THAO TÁC TỆP & THƯ MỤC ==================== -->
+          <div id="page-task1" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 01 • FILE MANAGEMENT SYSTEM</span>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">01. Tối Ưu Hóa Quản Lý Dữ Liệu</h3>
+              </div>
+              <div class="vintage-stamp w-14 h-14 text-[8px] text-vintage-mocha flex flex-col justify-center border-vintage-mocha">
+                <span>SYSTEM</span>
+                <span class="font-mono text-[6px] border-t border-vintage-mocha mt-[1px]">SECURED</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
+              <p class="text-xs text-vintage-mocha">
+                Tôi đã hoàn thành xuất sắc 12 bước thực hành thao tác với tệp tin và thư mục trên hệ điều hành cá nhân theo đúng yêu cầu đề bài [INDEX]:
+              </p>
+
+              <div class="bg-vintage-cream/30 p-2.5 rounded-lg border border-vintage-mocha/20 text-xs space-y-1.5">
+                <p><b>• Các thao tác chính thực hiện:</b></p>
+                <ul class="list-disc list-inside space-y-0.5 text-vintage-charcoal/80 pl-1 text-[11px]">
+                  <li>Khởi tạo thư mục gốc: <span class="font-mono text-vintage-red font-semibold">D:\ThucHanh_DangBaoNgoc</span> [INDEX]</li>
+                  <li>Tạo file văn bản <span class="font-mono">GhiChu.txt</span>, đổi tên thành <span class="font-mono font-semibold">GhiChuQuanTrong.txt</span> [INDEX]</li>
+                  <li>Tạo file di chuyển <span class="font-mono">DiChuyen.txt</span>, thực hành lệnh Cut - Paste và xóa vĩnh viễn bằng <span class="font-mono">Shift + Delete</span> [INDEX]</li>
+                  <li>Thực hiện lệnh Restore khôi phục tệp từ Thùng rác (Recycle Bin) về vị trí ban đầu thành công [INDEX]</li>
+                </ul>
+              </div>
+
+              <!-- Widget tương tác: Cây thư mục học tập thực tế -->
+              <div class="bg-vintage-charcoal text-vintage-cream p-3 rounded-xl font-mono text-xs shadow-md">
+                <p class="text-[9px] text-vintage-gold mb-1">// CẤU TRÚC THƯ MỤC THỰC TẾ (CLICK ĐỂ DUYỆT THƯ MỤC)</p>
+                <div class="space-y-1.5 text-[11px]">
+                  <div onclick="toggleFolder('folder-root-actual')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-1.5">
+                    <i class="fa-regular fa-folder-open text-vintage-gold"></i>
+                    <span>📁 This PC / Local Disk (D:) /</span>
+                  </div>
+                  <div id="folder-root-actual" class="pl-3 border-l border-vintage-mocha/50 space-y-1.5 ml-1.5">
+                    <div>
+                      <div onclick="toggleFolder('folder-thuchanh')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-1.5">
+                        <i class="fa-regular fa-folder-open text-vintage-gold"></i>
+                        <span>📁 ThucHanh_DangBaoNgoc/</span>
+                      </div>
+                      <div id="folder-thuchanh" class="pl-3 border-l border-vintage-mocha/50 space-y-1.5 ml-1.5">
+                        <div class="flex items-center gap-1.5">
+                          <i class="fa-regular fa-file-lines text-vintage-gold"></i>
+                          <span>📄 GhiChuQuanTrong.txt</span>
+                        </div>
+                        <div>
+                          <div onclick="toggleFolder('folder-tailieu')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-1.5">
+                            <i class="fa-regular fa-folder text-vintage-gold"></i>
+                            <span>📁 TaiLieu/</span>
+                          </div>
+                          <div id="folder-tailieu" class="pl-3 border-l border-vintage-mocha/50 space-y-1 ml-1.5 hidden">
+                            <div class="flex items-center gap-1.5 text-vintage-cream/80">
+                              <i class="fa-regular fa-file-lines text-vintage-gold/80"></i>
+                              <span>📄 GhiChuQuanTrong.txt (Sao chép)</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 text-vintage-cream/40">
+                              <i class="fa-regular fa-file-lines text-vintage-gold/20"></i>
+                              <span><del>📄 DiChuyen.txt (Đã xóa vĩnh viễn)</del></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 02: TÌM KIẾM HỌC THUẬT ==================== -->
+          <div id="page-task2" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 02 • ACADEMIC SEARCH STRATEGY</span>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">02. Chiến Lược Khai Thác & Đánh Giá</h3>
+              </div>
+              <div class="vintage-stamp stamp-approved w-14 h-14 text-[8px] text-vintage-olive flex flex-col justify-center">
+                <span>PASSED</span>
+                <span class="font-mono text-[6px] border-t border-vintage-olive mt-[1px]">VERIFIED</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
+              <p class="text-xs text-vintage-mocha italic leading-relaxed">
+                Chủ đề nghiên cứu học thuật của tôi: <b>"Ứng dụng các công cụ kỹ thuật số và Trí tuệ nhân tạo (AI) trong việc nâng cao hiệu quả tự học Ngôn ngữ và Văn hóa Đức cho sinh viên năm thứ nhất tại Việt Nam"</b> [INDEX].
+              </p>
+
+              <!-- Bộ giả lập công cụ tìm kiếm toán tử thực tế -->
+              <div class="bg-vintage-beige/40 p-2.5 rounded-xl border border-vintage-mocha/30 text-xs">
+                <p class="text-[11px] font-bold text-vintage-olive mb-1.5"><i class="fa-solid fa-circle-play"></i> Thử nghiệm chọn toán tử đa ngữ thực tế từ bài luận [INDEX]:</p>
+                <div class="flex flex-wrap gap-1.5 mb-2.5">
+                  <button onclick="applySearchQuery('site:edu.vn \"công cụ số học tiếng Đức\"')" class="px-2 py-1 bg-white border border-vintage-mocha text-[10px] rounded hover:bg-vintage-olive hover:text-white transition-all">site:edu.vn (Việt)</button>
+                  <button onclick="applySearchQuery('\"digital tools for German learning\" filetype:pdf')" class="px-2 py-1 bg-white border border-vintage-mocha text-[10px] rounded hover:bg-vintage-olive hover:text-white transition-all">filetype:pdf (Anh)</button>
+                  <button onclick="applySearchQuery('\"Künstliche Intelligenz beim Sprachenlernen\"')" class="px-2 py-1 bg-white border border-vintage-mocha text-[10px] rounded hover:bg-vintage-olive hover:text-white transition-all">\" \" Exact Match (Đức)</button>
+                </div>
+                
+                <div class="flex gap-1.5">
+                  <input id="search-bar" type="text" class="w-full px-2.5 py-1 border border-vintage-mocha rounded font-mono text-[11px]" placeholder="Nhập cú pháp học thuật..." readonly>
+                  <button onclick="simulateSearch()" class="px-3 py-1 bg-vintage-olive text-white text-[11px] rounded font-bold hover:bg-vintage-mocha transition-colors">TÌM KIẾM</button>
+                </div>
+              </div>
+
+              <!-- Kết quả giả lập bảng đánh giá CRAAP học thuật thực tế từ PDF 2 -->
+              <div id="search-result-table" class="hidden text-[10px] md:text-[11px] overflow-x-auto border border-vintage-mocha/20 rounded-lg max-h-[160px] overflow-y-auto">
+                <table class="w-full text-left border-collapse bg-white">
+                  <thead class="sticky top-0 bg-vintage-beige">
+                    <tr class="border-b border-vintage-mocha/20 text-vintage-olive">
+                      <th class="p-1.5 font-bold">STT</th>
+                      <th class="p-1.5 font-bold">Tên tài liệu / Tác giả</th>
+                      <th class="p-1.5 font-bold">Phân loại nguồn</th>
+                      <th class="p-1.5 font-bold">CRAAP Rating</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-vintage-mocha/10 text-vintage-charcoal">
+                    <tr>
+                      <td class="p-1.5">1</td>
+                      <td class="p-1.5 font-semibold">Chuyển đổi số trong giảng dạy ngoại ngữ / Nguyễn (2022)</td>
+                      <td class="p-1.5">Tạp chí NC Nước ngoài</td>
+                      <td class="p-1.5 text-vintage-red font-bold">5.0 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-1.5">2</td>
+                      <td class="p-1.5 font-semibold">Digital tools in DaF classrooms / Schmidt & Müller (2021)</td>
+                      <td class="p-1.5">Tạp chí Quốc tế Q1</td>
+                      <td class="p-1.5 text-vintage-red font-bold">5.0 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-1.5">3</td>
+                      <td class="p-1.5 font-semibold">Ứng dụng di động trong tự học tiếng Đức / Hoàng (2023)</td>
+                      <td class="p-1.5">Tạp chí KH Ngoại ngữ</td>
+                      <td class="p-1.5 text-vintage-red font-bold">4.5 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-1.5">4</td>
+                      <td class="p-1.5 font-semibold">AI-assisted language learning models / Baker (2024)</td>
+                      <td class="p-1.5">IEEE Transactions</td>
+                      <td class="p-1.5 text-vintage-red font-bold">5.0 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-1.5">5</td>
+                      <td class="p-1.5 font-semibold">Đánh giá độ chính xác của DeepL / Phan (2024)</td>
+                      <td class="p-1.5">Tạp chí Ngôn ngữ & ĐS</td>
+                      <td class="p-1.5 text-vintage-red font-bold">4.5 / 5.0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 03: PROMPT ENGINEERING ==================== -->
+          <div id="page-task3" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 03 • PROMPT ENGINEERING</span>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">03. Kỹ Nghệ Gợi Ý Đa Phiên Bản</h3>
+              </div>
+              <div class="vintage-stamp w-14 h-14 text-[8px] text-vintage-red border-vintage-red flex flex-col justify-center">
+                <span>PROMPT</span>
+                <span class="font-mono text-[6px] border-t border-vintage-red mt-[1px]">MASTERED</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
+              <p class="text-xs text-vintage-mocha">
+                Tôi đã xây dựng, thử nghiệm thực tế hệ thống Prompt 3 phiên bản (Cơ bản - Cải tiến - Nâng cao) trên Gemini phục vụ 3 tác vụ học tập cốt lõi [INDEX]:
+              </p>
+
+              <!-- Selector Tác Vụ để xem chi tiết -->
+              <div class="flex gap-1.5 justify-center border-b border-vintage-mocha/20 pb-2">
+                <button onclick="switchPromptTask(1)" id="btn-ptask1" class="px-2 py-1 bg-vintage-olive text-white text-[10px] rounded font-mono font-bold transition-all">TÁC VỤ 1: TÓM TẮT DAF</button>
+                <button onclick="switchPromptTask(2)" id="btn-ptask2" class="px-2 py-1 bg-vintage-cream border border-vintage-mocha text-vintage-charcoal text-[10px] rounded font-mono font-bold transition-all">TÁC VỤ 2: AKKUSATIV / DATIV</button>
+                <button onclick="switchPromptTask(3)" id="btn-ptask3" class="px-2 py-1 bg-vintage-cream border border-vintage-mocha text-vintage-charcoal text-[10px] rounded font-mono font-bold transition-all">TÁC VỤ 3: LỊCH SỬ BERLIN</button>
+              </div>
+
+              <div id="prompt-content-area" class="space-y-2">
+                <!-- Nội dung Tác vụ 1 mặc định -->
+                <div class="bg-vintage-cream/30 p-2.5 rounded-lg border border-vintage-mocha/10">
+                  <span class="text-[10px] font-bold text-vintage-olive block uppercase mb-0.5">Phiên bản Nâng cao (Role + Chain-of-Thought) [INDEX]</span>
+                  <p class="text-[11px] font-mono bg-white p-2 rounded border border-vintage-mocha/20 leading-relaxed text-vintage-charcoal/90">
+                    "Bạn là một chuyên gia ngôn ngữ học ứng dụng chuyên sâu về giảng dạy tiếng Đức (DaF) tại ULIS [INDEX]. Hãy đọc tài liệu học thuật dưới đây và thực hiện tóm tắt theo quy trình từng bước (Chain-of-Thought):<br>
+                    - Bước 1: Trích xuất 3 phương pháp ghi nhớ từ vựng được tác giả chứng minh hiệu quả nhất [INDEX].<br>
+                    - Bước 2: Phân tích ngắn gọn ưu và nhược điểm của từng phương pháp đối với sinh viên năm nhất Việt Nam [INDEX].<br>
+                    - Bước 3: Tổng hợp thành một lời khuyên hành động cụ thể dài không quá 100 từ [INDEX]."
+                  </p>
+                </div>
+              </div>
+
+              <!-- Nút mô phỏng kích hoạt prompt -->
+              <div class="text-center">
+                <button onclick="simulatePromptResponse()" class="px-4 py-1.5 bg-vintage-olive text-white text-xs font-bold tracking-wider rounded shadow hover:bg-vintage-mocha transition-all flex items-center gap-2 mx-auto">
+                  <i class="fa-solid fa-microchip animate-spin-slow"></i>
+                  <span>MÔ PHỎNG PHẢN HỒI CỦA AI</span>
+                </button>
+              </div>
+
+              <!-- Hộp kết quả đầu ra AI -->
+              <div id="ai-response-box" class="hidden bg-vintage-charcoal text-vintage-cream p-3 rounded-xl font-mono text-xs shadow-inner min-h-[70px] max-h-[120px] overflow-y-auto">
+                <p class="text-vintage-gold text-[9px] mb-0.5">// KẾT QUẢ PHẢN HỒI CỦA TRÍ TUỆ NHÂN TẠO:</p>
+                <div id="ai-response-text" class="leading-relaxed text-[11px]"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 04: CỘNG TÁC TRỰC TUYẾN ==================== -->
+          <div id="page-task4" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 04 • DIGITAL COLLABORATION</span>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">04. Không Gian Làm Việc Cộng Tác Số</h3>
+              </div>
+              <div class="vintage-stamp stamp-approved w-14 h-14 text-[8px] text-vintage-olive flex flex-col justify-center">
+                <span>COLLAB</span>
+                <span class="font-mono text-[6px] border-t border-vintage-olive mt-[1px]">EFFECTIVE</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
+              <p class="text-xs text-vintage-mocha">
+                Nhật ký tổ chức hạ tầng trực tuyến cho dự án nhóm liên ngành: <b>"Cẩm nang số hóa hỗ trợ học tập"</b> [INDEX]:
+              </p>
+
+              <!-- Tabs quản lý công cụ nhóm -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="p-2.5 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
+                  <span class="font-bold text-vintage-olive block mb-0.5"><i class="fa-brands fa-trello"></i> Trello Kanban (Thực tế)</span>
+                  <ul class="space-y-0.5 text-vintage-charcoal/80 pl-1 text-[11px]">
+                    <li>• <b>InProgress:</b> Thiết kế Slide/Infographic cẩm nang số hóa [INDEX].</li>
+                    <li>• <b>NeedToFix:</b> Setup bối cảnh quay phỏng vấn nhóm [INDEX].</li>
+                  </ul>
+                </div>
+                
+                <div class="p-2.5 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
+                  <span class="font-bold text-vintage-olive block mb-0.5"><i class="fa-brands fa-google-drive"></i> Google Drive (Đa cấp)</span>
+                  <p class="text-[10px] text-vintage-charcoal/80 font-mono leading-tight">
+                    📁 01. Đề cương dự án<br>
+                    📁 02. Nghiên cứu & Dữ liệu<br>
+                    📁 05. Biên tập nội dung<br>
+                    📄 BC_CaNhan_V1.0.pdf [INDEX]
+                  </p>
+                </div>
+
+                <div class="p-2.5 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
+                  <span class="font-bold text-vintage-olive block mb-0.5"><i class="fa-brands fa-discord"></i> Giao tiếp Discord</span>
+                  <p class="text-[10px] text-vintage-charcoal/80 italic leading-snug">
+                    Hơn 10 lượt tương tác dồn dập hàng tuần để điều phối báo cáo tiến độ và duyệt nội dung [INDEX].
+                  </p>
+                </div>
+              </div>
+
+              <!-- Widget tương tác Kanban mô phỏng tiến trình thực tế -->
+              <div class="bg-vintage-beige/20 p-2.5 rounded-xl border border-vintage-mocha/30">
+                <p class="text-[10px] uppercase font-bold text-vintage-olive mb-1.5"><i class="fa-solid fa-bars-progress"></i> Trạng thái Kanban thực tế (Click để dời cột tương tác):</p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="bg-white p-2 rounded border border-vintage-mocha/20">
+                    <span class="text-[8px] font-bold text-vintage-red block mb-1">IN PROGRESS</span>
+                    <div id="col-inprogress" class="space-y-1 text-[10px]">
+                      <div onclick="moveTask(this, 'col-done')" class="p-1.5 bg-vintage-cream/50 rounded cursor-pointer hover:bg-vintage-beige/40">
+                        <p class="font-semibold leading-tight">Thiết kế Slide & Infographic</p>
+                        <span class="text-[8px] text-vintage-mocha">Đặng Bảo Ngọc [INDEX]</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-2 rounded border border-vintage-mocha/20">
+                    <span class="text-[8px] font-bold text-green-700 block mb-1">DONE</span>
+                    <div id="col-done" class="space-y-1 text-[10px]">
+                      <div onclick="moveTask(this, 'col-inprogress')" class="p-1.5 bg-vintage-cream/50 rounded cursor-pointer hover:bg-vintage-beige/40">
+                        <p class="font-semibold leading-tight">Xây dựng đề án tổng thể</p>
+                        <span class="text-[8px] text-green-700">Đồng bộ đám mây [INDEX]</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 05: SÁNG TẠO VỚI GEN AI ==================== -->
+          <div id="page-task5" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 05 • GENERATIVE AI CREATION</span>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">05. Đồng Sáng Tạo Tập San Kỹ Thuật Số</h3>
+              </div>
+              <div class="vintage-stamp w-14 h-14 text-[8px] text-vintage-mocha border-vintage-mocha flex flex-col justify-center">
+                <span>GEN AI</span>
+                <span class="font-mono text-[6px] border-t border-vintage-mocha mt-[1px]">CREATIVE</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
+              <p class="text-xs text-vintage-mocha">
+                Dự án sáng tạo: <b>"Thiết kế bộ sản phẩm Infographic hướng dẫn phương pháp tự học từ vựng tiếng Đức hiệu quả cho tân sinh viên ULIS"</b> [INDEX].
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="border border-vintage-mocha/30 rounded-xl overflow-hidden shadow-sm bg-vintage-cream/30 p-2.5 flex flex-col justify-between">
+                  <!-- Tranh vẽ giả lập bưu thiếp bằng CSS phối màu tinh tế -->
+                  <div class="h-28 w-full bg-[#1e2d24] flex flex-col items-center justify-center p-2 relative rounded-lg">
+                    <div class="w-12 h-12 rounded-full border-2 border-vintage-gold flex items-center justify-center text-vintage-gold text-xl">
+                      <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <p class="text-vintage-gold font-mono text-[10px] mt-1">DaF - ULIS [INDEX]</p>
+                  </div>
+                  <div class="mt-1 text-[10px] text-vintage-charcoal">
+                    <span class="font-mono text-vintage-olive font-semibold">Prompt Nano Banana Pro [INDEX]:</span>
+                    <p class="italic text-vintage-mocha leading-snug mt-0.5">
+                      "Tạo biểu tượng vector phẳng, nền trắng tối giản, bộ não kết nối từ vựng bằng các sợi dây ánh sáng neon, hiển thị rõ chữ 'DaF'..." [INDEX]
+                    </p>
+                  </div>
+                </div>
+
+                <div class="p-2.5 border border-vintage-mocha/20 rounded-xl bg-vintage-cream/10 space-y-1.5 text-xs">
+                  <span class="font-bold text-vintage-olive block"><i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i> Hệ sinh thái GenAI trợ lực [INDEX]:</span>
+                  <div class="space-y-1 pl-1 text-vintage-charcoal/80 text-[11px]">
+                    <p>• <b>Google Gemini (Văn bản):</b> Kịch bản song ngữ Đức - Việt (Flashcards, Loci-Methode), gọt giũa 60% bản thô để đảm bảo chính xác [INDEX].</p>
+                    <p>• <b>Canva AI (Thiết kế):</b> Đồng bộ hóa bảng mã màu chuẩn xác và phân cấp thị giác (Visual Hierarchy) thương hiệu nhà trường [INDEX].</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 06: SỬ DỤNG AI TRÁCH NHIỆM ==================== -->
+          <div id="page-task6" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 06 • ETHICAL COMPLIANCE</span>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">06. Sáu Quy Tắc Đạo Đức Số</h3>
+              </div>
+              <div class="vintage-stamp stamp-approved w-14 h-14 text-[8px] text-vintage-red border-vintage-red flex flex-col justify-center">
+                <span>SECURED</span>
+                <span class="font-mono text-[6px] border-t border-vintage-red mt-[1px]">ETHICAL</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal">
+              <p class="text-xs text-vintage-mocha">
+                Để bảo vệ liêm chính học thuật, tôi tuân thủ bộ 6 quy tắc ứng xử AI thiết kế bằng mã nguồn LaTeX TikZ trực quan [INDEX]:
+              </p>
+
+              <!-- Widget tương tác: Quy tắc đạo đức -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-1.5 text-[10px] md:text-[11px]">
+                <div class="p-1.5 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>1. Con người làm chủ (Trách nhiệm cuối) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-1.5 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>2. Minh bạch tuyệt đối (Khai báo tương tác) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-1.5 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>3. Nghiêm cấm sao chép thô (Không Copy-Paste) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-1.5 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>4. Kiểm chứng độc lập (Sử dụng sách gốc) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-1.5 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>5. Bảo mật học thuật (Không chia sẻ đề thi) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-1.5 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>6. Ưu tiên rèn luyện nội lực (Chỉ dùng hỗ trợ) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+              </div>
+              <p class="text-[8px] text-vintage-mocha italic text-center">* Nhấp chọn từng quy tắc ở trên để ký cam kết liêm chính học thuật [INDEX].</p>
+            </div>
+          </div>
+
+          <!-- ==================== TRANG 07: TỔNG KẾT & ĐÁNH GIÁ ==================== -->
+          <div id="page-reflection" class="page-content hidden fade-in-up">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG CUỐI • ARRIVAL STAMP</span>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">07. Tổng Kết Hành Trình Cá Nhân</h3>
+              </div>
+              <div class="vintage-stamp stamp-approved w-16 h-16 text-[9px] text-vintage-olive flex flex-col justify-center border-vintage-gold text-vintage-gold">
+                <span>ULIS-VNU</span>
+                <span class="font-mono text-[6px] border-t border-vintage-gold mt-[1.5px] font-bold">ARRIVED</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm text-vintage-charcoal leading-relaxed">
+              <p class="italic text-vintage-mocha text-xs leading-snug">
+                "Hành trình học tập này giúp tôi hiểu sâu sắc rằng, ngoại ngữ và công nghệ số là đôi cánh song hành giúp thế hệ trẻ tự tin làm chủ và kiến tạo tri thức tương lai." [INDEX]
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-1.5">
+                <div class="bg-vintage-cream/40 p-2.5 rounded-lg border border-vintage-mocha/20">
+                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-0.5"><i class="fa-solid fa-graduation-cap"></i> Nhận thức khoa học</h4>
+                  <p class="text-[11px] leading-relaxed text-vintage-charcoal/80">
+                    Tôi đã vượt qua rào cản công nghệ ban đầu của một sinh viên ngoại ngữ năm nhất, học cách thiết lập Prompt thông minh, tư duy logic và lưu trữ khoa học [INDEX].
+                  </p>
+                </div>
+                <div class="bg-vintage-cream/40 p-2.5 rounded-lg border border-vintage-mocha/20">
+                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-0.5"><i class="fa-solid fa-seedling"></i> Thực tiễn nghề nghiệp</h4>
+                  <p class="text-[11px] leading-relaxed text-vintage-charcoal/80">
+                    Sự thấu hiểu công cụ số sẽ trở thành bàn đạp then chốt giúp tôi tối đa hóa năng lực nghiên cứu, nâng cao hiệu suất dịch thuật song ngữ Việt - Đức [INDEX].
+                  </p>
+                </div>
+              </div>
+
+              <!-- Thư mục liên kết ngoài -->
+              <div class="p-2.5 border border-dashed border-vintage-mocha/40 rounded-xl bg-vintage-cream/20 flex flex-col md:flex-row items-center justify-between gap-2.5 mt-2">
+                <div class="text-center md:text-left leading-tight">
+                  <h5 class="text-xs font-bold text-vintage-charcoal">Thư mục Bài tập Lớn (Google Drive)</h5>
+                  <p class="text-[10px] text-vintage-mocha">Chứa đầy đủ các mã nguồn TikZ, bài viết PDF và tài liệu báo cáo cụ thể.</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="px-4 py-1.5 bg-vintage-olive text-white text-xs font-mono rounded hover:bg-vintage-mocha transition-all flex items-center gap-1.5 shadow">
+                  <i class="fa-brands fa-google-drive"></i>
+                  <span>OPEN_GOOGLE_DRIVE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- THANH ĐIỀU HƯỚNG DƯỚI (QUAY LẠI / TIẾP THEO) -->
+        <div class="mt-4 pt-3 border-t border-vintage-mocha/20 flex justify-between items-center relative z-10 text-xs font-mono">
+          <button id="prev-btn" onclick="navigatePrev()" class="text-vintage-mocha hover:text-vintage-olive font-bold flex items-center gap-1 transition-colors">
+            <i class="fa-solid fa-chevron-left"></i> TRANG TRƯỚC
+          </button>
+          
+          <span id="page-indicator" class="text-vintage-mocha font-semibold">TRANG 1 / 8</span>
+          
+          <button id="next-btn" onclick="navigateNext()" class="text-vintage-mocha hover:text-vintage-olive font-bold flex items-center gap-1 transition-colors">
+            TIẾP THEO <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ==================== PHẦN MÃ LỆNH ĐIỀU KHIỂN JAVASCRIPT ==================== -->
+  <script>
+    // Danh sách định dạng các trang nội dung
+    const pageIds = ['welcome', 'task1', 'task2', 'task3', 'task4', 'task5', 'task6', 'reflection'];
+    let currentPageIndex = 0;
+
+    // Bộ tổng hợp âm thanh lật sách chân thực sử dụng Web Audio API
+    function playPageTurnSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        // Tạo nhiễu trắng ngẫu nhiên (White Noise)
+        const bufferSize = ctx.sampleRate * 0.25; 
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+        
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = 1100;
+        filter.Q.value = 0.6;
+        
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.06, ctx.currentTime + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.24);
+        
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+        
+        noise.start();
+      } catch (e) {
+        console.log("Audio not supported or interaction required first.");
+      }
+    }
+
+    // Kích hoạt máy bay giấy chuyển động bay qua màn hình
+    function triggerPaperPlane() {
+      const plane = document.getElementById('paper-plane');
+      plane.classList.remove('paper-plane-active');
+      void plane.offsetWidth; 
+      plane.classList.add('paper-plane-active');
+    }
+
+    // Mở hộ chiếu
+    function openPassport() {
+      playPageTurnSound();
+      triggerPaperPlane();
+      
+      const cover = document.getElementById('passport-cover');
+      const journal = document.getElementById('inner-journal');
+      
+      cover.classList.add('opened');
+      
+      setTimeout(() => {
+        cover.classList.add('hidden');
+        journal.classList.remove('hidden');
+        journal.classList.add('fade-in-up');
+        updateNavigationState();
+      }, 600);
+    }
+
+    // Gập hộ chiếu
+    function closePassport() {
+      playPageTurnSound();
+      
+      const cover = document.getElementById('passport-cover');
+      const journal = document.getElementById('inner-journal');
+      
+      journal.classList.add('hidden');
+      cover.classList.remove('hidden');
+      
+      setTimeout(() => {
+        cover.classList.remove('opened');
+      }, 50);
+    }
+
+    // Chuyển trang chủ động qua nút điều hướng hoặc danh mục bên trái
+    function changePage(pageId) {
+      const index = pageIds.indexOf(pageId);
+      if (index === -1) return;
+      
+      playPageTurnSound();
+      triggerPaperPlane();
+      
+      currentPageIndex = index;
+      
+      document.querySelectorAll('.page-content').forEach(p => {
+        p.classList.add('hidden');
+      });
+      
+      document.getElementById('page-' + pageId).classList.remove('hidden');
+      
+      updateNavigationState();
+    }
+
+    function navigatePrev() {
+      if (currentPageIndex > 0) {
+        changePage(pageIds[currentPageIndex - 1]);
+      }
+    }
+
+    // Tiến tới trang sau
+    function navigateNext() {
+      if (currentPageIndex < pageIds.length - 1) {
+        changePage(pageIds[currentPageIndex + 1]);
+      }
+    }
+
+    function updateNavigationState() {
+      const currentId = pageIds[currentPageIndex];
+      
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-vintage-olive', 'text-white', 'shadow-sm');
+        btn.classList.add('hover:bg-vintage-mocha/10', 'text-vintage-charcoal');
+      });
+      
+      const activeBtn = document.getElementById('nav-' + currentId);
+      if (activeBtn) {
+        activeBtn.classList.remove('hover:bg-vintage-mocha/10', 'text-vintage-charcoal');
+        activeBtn.classList.add('bg-vintage-olive', 'text-white', 'shadow-sm');
+      }
+
+      document.getElementById('page-indicator').innerText = `TRANG ${currentPageIndex + 1} / ${pageIds.length}`;
+      
+      document.getElementById('prev-btn').style.opacity = currentPageIndex === 0 ? '0.3' : '1';
+      document.getElementById('prev-btn').disabled = currentPageIndex === 0;
+      
+      document.getElementById('next-btn').style.opacity = currentPageIndex === pageIds.length - 1 ? '0.3' : '1';
+      document.getElementById('next-btn').disabled = currentPageIndex === pageIds.length - 1;
+    }
+
+    // Tương tác thư mục
+    function toggleFolder(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.toggle('hidden');
+        playPageTurnSound();
+      }
+    }
+
+    // Tương tác tìm kiếm
+    function applySearchQuery(query) {
+      const searchBar = document.getElementById('search-bar');
+      searchBar.value = query;
+      playPageTurnSound();
+    }
+
+    function simulateSearch() {
+      const searchBar = document.getElementById('search-bar');
+      const resultTable = document.getElementById('search-result-table');
+      if (!searchBar.value) {
+        alert("Vui lòng chọn hoặc nhập toán tử trước khi bấm tìm kiếm.");
+        return;
+      }
+      playPageTurnSound();
+      resultTable.classList.remove('hidden');
+      resultTable.classList.add('fade-in-up');
+    }
+
+    // Dữ liệu Prompt Engineering động
+    const promptData = {
+      1: {
+        title: "Phiên bản Nâng cao (Role + Chain-of-Thought) [INDEX]",
+        content: `"Bạn là một chuyên gia ngôn ngữ học ứng dụng chuyên sâu về giảng dạy tiếng Đức (DaF) tại ULIS [INDEX]. Hãy đọc tài liệu học thuật dưới đây và thực hiện tóm tắt theo quy trình từng bước (Chain-of-Thought):<br>- Bước 1: Trích xuất 3 phương pháp ghi nhớ từ vựng được tác giả chứng minh hiệu quả nhất [INDEX].<br>- Bước 2: Phân tích ngắn gọn ưu và nhược điểm của từng phương pháp đối với sinh viên năm nhất Việt Nam [INDEX].<br>- Bước 3: Tổng hợp thành một lời khuyên hành động cụ thể dài không quá 100 từ [INDEX]."`
+      },
+      2: {
+        title: "Phiên bản Nâng cao (Role + Few-shot + Analogy) [INDEX]",
+        content: `"Bạn là một trợ giảng bản xứ dạy tiếng Đức vui tính, có khả năng sư phạm xuất sắc. Hãy giải thích khái niệm 'Sự khác biệt giữa Akkusativ và Dativ khi đi với giới từ song hướng (Wechselpräpositionen)' cho một tân sinh viên năm nhất đang bị nhầm lẫn [INDEX].<br>Hãy áp dụng phương pháp so sánh ẩn dụ trực quan (ví dụ: hành động chuyển động vs trạng thái cố định) [INDEX].<br>Sử dụng kỹ thuật Few-shot với cấu trúc ví dụ chuẩn sau:<br>- Giới từ + Akkusativ (Chuyển động): Ich lege das Buch auf den Tisch. (Đặt cuốn sách xuống) [INDEX].<br>- Giới từ + Dativ (Cố định): Das Buch liegt auf dem Tisch. (Cuốn sách đã nằm yên trên bàn) [INDEX]."`
+      },
+      3: {
+        title: "Phiên bản Nâng cao (Role + Multi-turn Specification) [INDEX]",
+        content: `"Bạn là một chuyên gia khảo thí và xây dựng chương trình môn Đất nước học Đức tại Đại học Quốc gia. Hãy thiết lập một bộ đề ôn tập kết hợp gồm 3 câu hỏi trắc nghiệm khách quan (đánh giá kiến thức nền tảng về năm 1961 và 1989) và 1 câu hỏi tự luận ngắn [INDEX]... Đối với câu hỏi tự luận, hãy cung cấp rõ ràng: (1) Tiêu chí chấm điểm (Rubric) cụ thể, (2) Các từ khóa quan trọng cần có trong bài làm để đạt điểm tối đa như 'Wiedervereinigung', 'Mauerfall', 'Ostdeutschland' [INDEX]."`
+      }
+    };
+
+    let activePromptTask = 1;
+
+    function switchPromptTask(taskId) {
+      activePromptTask = taskId;
+      playPageTurnSound();
+      
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById('btn-ptask' + i);
+        if (i === taskId) {
+          btn.className = "px-2 py-1 bg-vintage-olive text-white text-[10px] rounded font-mono font-bold transition-all";
+        } else {
+          btn.className = "px-2 py-1 bg-vintage-cream border border-vintage-mocha text-vintage-charcoal text-[10px] rounded font-mono font-bold transition-all";
+        }
+      }
+
+      const container = document.getElementById('prompt-content-area');
+      container.innerHTML = `
+        <div class="bg-vintage-cream/30 p-2 rounded-lg border border-vintage-mocha/10">
+          <span class="text-[10px] font-bold text-vintage-olive block uppercase mb-0.5">${promptData[taskId].title}</span>
+          <p class="text-[11px] font-mono bg-white p-2 rounded border border-vintage-mocha/20 leading-relaxed text-vintage-charcoal/90">
+            ${promptData[taskId].content}
+          </p>
+        </div>
+      `;
+    }
+
+    let typingInterval;
+    function simulatePromptResponse() {
+      const responseBox = document.getElementById('ai-response-box');
+      const responseText = document.getElementById('ai-response-text');
+      
+      playPageTurnSound();
+      responseBox.classList.remove('hidden');
+      responseText.innerHTML = "";
+      
+      let responseString = "";
+      if (activePromptTask === 1) {
+        responseString = "Hallo Đặng Bảo Ngọc! Phân tích tóm tắt phương pháp học từ vựng DaF:\n1. Flashcards (Học từ vựng qua thẻ nhớ)\n2. Mindmap (Sơ đồ tư duy học theo chủ đề)\n3. Loci-Methode (Gắn từ vựng vào không gian quen thuộc)\nLời khuyên: Kết hợp Flashcards số hóa để ôn tập ngắt quãng hiệu quả [INDEX].";
+      } else if (activePromptTask === 2) {
+        responseString = "Chào em! Hãy nhớ nguyên tắc 'ống kính camera' của trợ giảng vui tính:\n- Akkusativ (Cách 4) = Một bộ phim hành động! Có sự di chuyển vị trí rõ rệt (Wohin? - Đi đâu?) [INDEX].\n- Dativ (Cách 3) = Một bức ảnh tĩnh! Vật thể nằm im không xê dịch (Wo? - Ở đâu?) [INDEX].";
+      } else {
+        responseString = "Hệ thống đề thi Đất nước học Đức:\nCâu 1: Bức tường Berlin được xây dựng vào năm nào? (Đáp án đúng: 1961) [INDEX].\nCâu 2: Sự sụp đổ của bức tường diễn ra năm nào? (Đáp án đúng: 1989) [INDEX].\nCâu hỏi tự luận: Hãy phân tích tác động đối với thế hệ trẻ ngày nay. Yêu cầu có từ khóa: Wiedervereinigung [INDEX].";
+      }
+      
+      let index = 0;
+      clearInterval(typingInterval);
+      
+      typingInterval = setInterval(() => {
+        if (index < responseString.length) {
+          if (responseString.charAt(index) === '\n') {
+            responseText.innerHTML += '<br>';
+          } else {
+            responseText.innerHTML += responseString.charAt(index);
+          }
+          index++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 20);
+    }
+
+    function moveTask(taskCard, targetColumnId) {
+      playPageTurnSound();
+      const targetColumn = document.getElementById(targetColumnId);
+      if (targetColumn) {
+        targetColumn.appendChild(taskCard);
+        
+        if (targetColumnId === 'col-inprogress') {
+          taskCard.setAttribute('onclick', "moveTask(this, 'col-done')");
+        } else if (targetColumnId === 'col-done') {
+          taskCard.setAttribute('onclick', "moveTask(this, 'col-inprogress')");
+        }
+      }
+    }
+
+    function toggleEthicCheck(element) {
+      playPageTurnSound();
+      const seal = element.querySelector('.ethic-seal');
+      if (seal) {
+        seal.classList.toggle('opacity-0');
+        seal.classList.toggle('opacity-100');
+        seal.classList.toggle('scale-105');
+      }
+    }
+  </script>
+</body>
+</html>
