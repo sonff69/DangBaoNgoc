@@ -52,7 +52,7 @@
       background-position: 0 0, 8px 8px;
     }
 
-    /* Hi ứng 3D mở hộ chiếu */
+    /* Hiệu ứng 3D mở hộ chiếu */
     .passport-book {
       perspective: 2000px;
     }
@@ -118,7 +118,7 @@
       }
     }
 
-    /* Hiệu ứng máy bay giấy bay ngang */
+    /* Hiệu ứng máy bay giấy chuyển động */
     @keyframes flyAcross {
       0% {
         transform: translate(-100px, 100px) rotate(45deg);
@@ -167,7 +167,7 @@
         </div>
         <h1 class="font-cinzel text-vintage-gold text-3xl md:text-4xl font-bold tracking-[0.1em]">MEIN REISEPASS</h1>
         <p class="font-playfair italic text-vintage-beige text-sm mt-3 opacity-80">Portfolio Hành Trình Số & Trí Tuệ Nhân Tạo</p>
-        <div class="mt-8 border border-vintage-gold/30 px-6 py-2 rounded bg-vintage-olive/40 backdrop-blur-sm">
+        <div class="mt-6 border border-vintage-gold/30 px-6 py-2 rounded bg-vintage-olive/40 backdrop-blur-sm">
           <p class="text-vintage-gold text-xs font-mono tracking-widest">OWNER: ĐẶNG BẢO NGỌC</p>
           <p class="text-vintage-beige/70 text-[10px] font-mono mt-1">MAJOR: GERMAN LANGUAGE & CULTURE</p>
         </div>
@@ -185,7 +185,7 @@
     <!-- ==================== INNER JOURNAL (NỘI DUNG BÊN TRONG) ==================== -->
     <div id="inner-journal" class="hidden w-full h-full bg-[#fbf9f5] border-2 border-vintage-mocha/30 rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 z-20 transition-all duration-500">
       
-      <!-- CỘT TRÁI (BOARDING PASS & CHỈ MỤC HÀNH TRÌNH) -->
+      <!-- CỘT TRÁI (BOARDING PASS, ẢNH ĐẠI DIỆN & CHỈ MỤC HÀNH TRÌNH) -->
       <div class="lg:col-span-4 bg-vintage-beige/60 border-b lg:border-b-0 lg:border-r border-vintage-mocha/30 p-4 md:p-6 flex flex-col justify-between overflow-y-auto">
         <div>
           <!-- Tiêu đề Boarding Pass -->
@@ -199,36 +199,38 @@
             </div>
           </div>
 
-          <!-- Thông tin cá nhân lấy từ inf.html -->
-          <div class="space-y-3 text-xs mb-6 bg-vintage-cream/80 p-4 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden">
-            <!-- Tem bưu chính góc nhỏ -->
-            <div class="absolute -top-1 -right-1 w-12 h-12 opacity-15">
-              <svg viewBox="0 0 100 100" fill="currentColor" class="text-vintage-mocha">
-                <path d="M0,0 H100 V100 H0 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="6,6"/>
-              </svg>
-            </div>
-            <div>
-              <span class="text-[10px] uppercase font-mono text-vintage-mocha">HÀNH KHÁCH / PASSENGER</span>
-              <p class="font-bold text-sm text-vintage-charcoal font-playfair tracking-wide">ĐẶNG BẢO NGỌC</p>
-            </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <span class="text-[10px] uppercase font-mono text-vintage-mocha">MÃ SỐ SV</span>
-                <p class="font-bold font-mono">25041946</p>
+          <!-- Thông tin cá nhân & Ảnh đại diện (Hình 1.jpg) -->
+          <div class="bg-vintage-cream/80 p-4 rounded-xl border border-vintage-mocha/20 shadow-sm relative overflow-hidden mb-4">
+            <!-- Thêm ảnh đại diện và căn lề -->
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-16 h-20 border-2 border-vintage-mocha/50 rounded-md overflow-hidden bg-vintage-paper shadow-inner flex-shrink-0">
+                <img src="Hình 1.jpg" alt="Ảnh đại diện Đặng Bảo Ngọc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200';">
               </div>
               <div>
-                <span class="text-[10px] uppercase font-mono text-vintage-mocha">GHẾ NGỒI / SEAT</span>
-                <p class="font-bold font-mono">07A / ULIS</p>
+                <span class="text-[9px] uppercase font-mono text-vintage-mocha">HÀNH KHÁCH / PASSENGER</span>
+                <p class="font-bold text-sm text-vintage-charcoal font-playfair tracking-wide leading-tight">ĐẶNG BẢO NGỌC</p>
+                <p class="font-bold font-mono text-[11px] text-vintage-mocha mt-1">MSSV: 25041946</p>
               </div>
             </div>
-            <div>
-              <span class="text-[10px] uppercase font-mono text-vintage-mocha">CHUYÊN NGÀNH / DEPT</span>
-              <p class="font-bold text-vintage-olive text-[11px]">Ngôn ngữ và Văn hóa Đức</p>
+            
+            <div class="grid grid-cols-2 gap-2 text-[10px] border-t border-dashed border-vintage-mocha/20 pt-2">
+              <div>
+                <span class="text-[9px] uppercase font-mono text-vintage-mocha">CHUYÊN NGÀNH</span>
+                <p class="font-bold text-vintage-olive">Ngôn ngữ & VH Đức</p>
+              </div>
+              <div>
+                <span class="text-[9px] uppercase font-mono text-vintage-mocha">CƠ SỞ ĐÀO TẠO</span>
+                <p class="font-semibold">ĐH Ngoại ngữ - ĐHQGHN</p>
+              </div>
             </div>
-            <div>
-              <span class="text-[10px] uppercase font-mono text-vintage-mocha">CƠ SỞ ĐÀO TẠO / UNIVERSITY</span>
-              <p class="font-semibold text-[11px]">Đại học Ngoại ngữ - ĐHQGHN</p>
-            </div>
+          </div>
+
+          <!-- Nút truy cập thư mục Google Drive bài tập lớn -->
+          <div class="mb-4">
+            <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="w-full py-2.5 px-4 bg-vintage-gold text-vintage-olive border border-vintage-gold hover:bg-white hover:text-vintage-olive font-cinzel font-bold text-[10px] tracking-wider rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all duration-200">
+              <i class="fa-brands fa-google-drive text-sm"></i>
+              <span>XEM BÀI TẬP TRÊN GG DRIVE</span>
+            </a>
           </div>
 
           <!-- Danh sách điểm dừng chân (Menu điều hướng) -->
@@ -294,26 +296,9 @@
         </div>
 
         <!-- Mã vạch và đóng hộ chiếu -->
-        <div class="mt-6 border-t-2 border-dashed border-vintage-mocha/40 pt-4 text-center">
-          <div class="bg-white p-2 rounded inline-block shadow-sm">
-            <!-- Mã vạch tạo bằng CSS -->
-            <div class="flex items-center justify-center gap-[2px] h-8 w-44 bg-vintage-charcoal px-2">
-              <div class="bg-white w-[1px] h-full"></div>
-              <div class="bg-white w-[3px] h-full"></div>
-              <div class="bg-white w-[1px] h-full"></div>
-              <div class="bg-white w-[2px] h-full"></div>
-              <div class="bg-white w-[1px] h-full"></div>
-              <div class="bg-white w-[4px] h-full"></div>
-              <div class="bg-white w-[1px] h-full"></div>
-              <div class="bg-white w-[2px] h-full"></div>
-              <div class="bg-white w-[1px] h-full"></div>
-              <div class="bg-white w-[3px] h-full"></div>
-              <div class="bg-white w-[2px] h-full"></div>
-              <div class="bg-white w-[1px] h-full"></div>
-            </div>
-            <p class="text-[9px] font-mono mt-1 text-vintage-mocha tracking-widest">GATE K25 - PASSENGER ID: 25041946</p>
-          </div>
-          <button onclick="closePassport()" class="mt-3 text-[11px] font-cinzel font-semibold text-vintage-red hover:underline block mx-auto flex items-center gap-1 justify-center">
+        <div class="mt-4 border-t-2 border-dashed border-vintage-mocha/40 pt-3 text-center">
+          <p class="text-[9px] font-mono text-vintage-mocha tracking-widest mb-1">GATE K25 - PASSENGER ID: 25041946</p>
+          <button onclick="closePassport()" class="text-[11px] font-cinzel font-semibold text-vintage-red hover:underline block mx-auto flex items-center gap-1 justify-center">
             <i class="fa-solid fa-folder-closed"></i> Gấp hộ chiếu lại
           </button>
         </div>
@@ -334,9 +319,8 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG KHỞI HÀNH • DEPARTURE</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">00. VƯỢT QUA GIỚI HẠN BẢN THÂN</h3>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">00. Chuyến Bay Số Hiệu K25 ULIS</h3>
               </div>
-              <!-- Con dấu Berlin -->
               <div class="vintage-stamp stamp-approved w-16 h-16 text-[9px] text-vintage-olive flex flex-col justify-center">
                 <span>BERLIN</span>
                 <span class="font-mono text-[7px] border-t border-vintage-olive mt-[2px]">WILLKOMMEN</span>
@@ -345,24 +329,24 @@
             
             <div class="space-y-4 text-sm text-vintage-charcoal leading-relaxed">
               <p class="italic text-vintage-mocha">
-                "Chào bạn, tôi là Bảo Ngọc. Trong thế giới toàn cầu hóa, việc sở hữu chỉ một tấm bằng ngoại ngữ là chưa đủ. Cuốn hộ chiếu này chính là nơi ghi lại hành trình tôi khám phá và làm chủ công nghệ số, nhằm chắp cánh cho con đường ngôn ngữ học của bản thân."
+                "Chào mừng bạn đến với cuốn Hộ chiếu Hành trình số của tôi. Tôi là Đặng Bảo Ngọc, sinh viên năm nhất ngành Ngôn ngữ Đức tại Đại học Ngoại ngữ - ĐHQGHN [INDEX]. Cuốn nhật ký hành trình số này phản ánh nỗ lực tự hoàn thiện, nâng cấp tư duy và làm chủ công nghệ của tôi qua các bài tập thực nghiệm dự án cá nhân."
               </p>
               
               <div class="bg-vintage-beige/30 p-4 rounded-xl border-l-4 border-vintage-olive">
                 <h4 class="font-semibold text-vintage-olive mb-1"><i class="fa-solid fa-bullseye"></i> Mục tiêu học tập cá nhân</h4>
                 <p class="text-xs">
-                  Sử dụng thành thạo và có tư duy phản biện đối với các công cụ Trí tuệ nhân tạo (GenAI), tự động hóa các quy trình nghiên cứu học thuật, dịch thuật tài liệu và sản xuất nội dung số song ngữ Đức - Việt hiệu quả.
+                  Xây dựng năng lực số vững vàng, thấu hiểu nguyên lý vận hành của các mô hình ngôn ngữ lớn (LLM), từ đó tích hợp thông minh công cụ trí tuệ nhân tạo để chinh phục rào cản ngữ pháp tiếng Đức phức tạp [INDEX].
                 </p>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div class="border border-vintage-mocha/20 p-3 rounded-lg bg-vintage-cream/20">
                   <h5 class="text-xs font-bold text-vintage-mocha uppercase mb-1"><i class="fa-solid fa-passport"></i> Mục đích Portfolio</h5>
-                  <p class="text-xs">Hệ thống hóa, lưu trữ các thành tựu của môn học và chứng minh năng lực học hỏi công nghệ liên tục của sinh viên ngôn ngữ.</p>
+                  <p class="text-xs">Số hóa các thành quả nghiên cứu học tập, tự phân tích ưu nhược điểm cá nhân một cách nghiêm túc nhằm phục vụ lưu trữ học thuật lâu dài [INDEX].</p>
                 </div>
                 <div class="border border-vintage-mocha/20 p-3 rounded-lg bg-vintage-cream/20">
-                  <h5 class="text-xs font-bold text-vintage-mocha uppercase mb-1"><i class="fa-solid fa-route"></i> Định hướng tương lai</h5>
-                  <p class="text-xs">Đạt trình độ C1 tiếng Đức, tích hợp AI vào quy trình làm việc để nâng cao hiệu suất làm biên phiên dịch thế hệ mới.</p>
+                  <h5 class="text-xs font-bold text-vintage-mocha uppercase mb-1"><i class="fa-solid fa-route"></i> Hành trình tương lai</h5>
+                  <p class="text-xs">Làm chủ công nghệ để đẩy nhanh tiến độ học tập, tự tin dịch thuật song ngữ Việt - Đức hiệu quả, hướng đến mục tiêu đạt C1 trong tương lai [INDEX].</p>
                 </div>
               </div>
             </div>
@@ -372,8 +356,8 @@
           <div id="page-task1" class="page-content hidden fade-in-up">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 01 • FILE SYSTEM DESIGN</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">01. Cấu Trúc Hóa Dữ Liệu Học Tập</h3>
+                <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 01 • FILE MANAGEMENT SYSTEM</span>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">01. Tối Ưu Hóa Quản Lý Dữ Liệu</h3>
               </div>
               <div class="vintage-stamp w-16 h-16 text-[9px] text-vintage-mocha flex flex-col justify-center border-vintage-mocha">
                 <span>SYSTEM</span>
@@ -382,50 +366,55 @@
             </div>
 
             <div class="space-y-4 text-sm text-vintage-charcoal">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div class="bg-vintage-cream/50 p-3 rounded border border-vintage-mocha/20">
-                  <span class="text-[10px] uppercase font-bold text-vintage-olive">Mục tiêu</span>
-                  <p class="text-xs mt-1">Xây dựng kiến trúc cây thư mục tối ưu, chuẩn hóa quy tắc đặt tên để lưu trữ tài liệu dài hạn.</p>
-                </div>
-                <div class="bg-vintage-cream/50 p-3 rounded border border-vintage-mocha/20">
-                  <span class="text-[10px] uppercase font-bold text-vintage-olive">Phương pháp</span>
-                  <p class="text-xs mt-1">Áp dụng chuẩn Snake_case & CamelCase có phân định phiên bản để tránh xung đột dữ liệu nhóm.</p>
-                </div>
-                <div class="bg-vintage-cream/50 p-3 rounded border border-vintage-mocha/20">
-                  <span class="text-[10px] uppercase font-bold text-vintage-olive">Minh họa sản phẩm</span>
-                  <p class="text-xs mt-1">Hệ thống thư mục động được thiết kế trực tiếp phía dưới để bạn trải nghiệm cấu trúc thực tế.</p>
-                </div>
+              <p class="text-xs text-vintage-mocha">
+                Tôi đã hoàn thành xuất sắc 12 bước thực hành thao tác với tệp tin và thư mục trên hệ điều hành cá nhân theo đúng yêu cầu đề bài [INDEX]:
+              </p>
+
+              <div class="bg-vintage-cream/30 p-3 rounded-lg border border-vintage-mocha/20 text-xs space-y-2">
+                <p><b>• Các thao tác chính thực hiện:</b></p>
+                <ul class="list-disc list-inside space-y-1 text-vintage-charcoal/80 pl-2">
+                  <li>Khởi tạo thư mục gốc: <span class="font-mono text-vintage-red">D:\ThucHanh_DangBaoNgoc</span> [INDEX]</li>
+                  <li>Tạo file văn bản <span class="font-mono">GhiChu.txt</span>, đổi tên thành <span class="font-mono">GhiChuQuanTrong.txt</span> và sao chép vào thư mục con <span class="font-mono">TaiLieu</span> [INDEX]</li>
+                  <li>Tạo file di chuyển <span class="font-mono">DiChuyen.txt</span>, thực hiện Cut - Paste di dời tệp và thực hành xóa vĩnh viễn bằng tổ hợp <span class="font-mono">Shift + Delete</span> [INDEX]</li>
+                  <li>Đưa tệp vào Thùng rác (Recycle Bin) và thực hiện Restore khôi phục tệp về vị trí ban đầu thành công [INDEX]</li>
+                </ul>
               </div>
 
-              <!-- Widget tương tác: Cây thư mục động học tập -->
+              <!-- Widget tương tác: Cây thư mục học tập thực tế -->
               <div class="bg-vintage-charcoal text-vintage-cream p-4 rounded-xl font-mono text-xs shadow-md">
-                <p class="text-[10px] text-vintage-gold mb-2">// HỆ THỐNG THƯ MỤC HỌC TẬP (CLICK ĐỂ MỞ/ĐÓNG)</p>
+                <p class="text-[10px] text-vintage-gold mb-2">// CẤU TRÚC THƯ MỤC THỰC TẾ (CLICK ĐỂ DUYỆT THƯ MỤC)</p>
                 <div class="space-y-2">
-                  <div onclick="toggleFolder('folder-root')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-2">
+                  <div onclick="toggleFolder('folder-root-actual')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-2">
                     <i class="fa-regular fa-folder-open text-vintage-gold"></i>
-                    <span>📁 ULIS_25041946_DangBaoNgoc/</span>
+                    <span>📁 This PC / Local Disk (D:) /</span>
                   </div>
-                  <div id="folder-root" class="pl-4 border-l border-vintage-mocha/50 space-y-2 ml-2">
+                  <div id="folder-root-actual" class="pl-4 border-l border-vintage-mocha/50 space-y-2 ml-2">
                     <div>
-                      <div onclick="toggleFolder('folder-ky1')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-2">
-                        <i class="fa-regular fa-folder text-vintage-gold"></i>
-                        <span>📁 K25_Ky1_NM_CongNgheSo_AI/</span>
+                      <div onclick="toggleFolder('folder-thuchanh')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-2">
+                        <i class="fa-regular fa-folder-open text-vintage-gold"></i>
+                        <span>📁 ThucHanh_DangBaoNgoc/</span>
                       </div>
-                      <div id="folder-ky1" class="pl-4 border-l border-vintage-mocha/50 space-y-1 ml-2 hidden">
-                        <div>📄 BT1_HeThongThuMuc_v1.0.pdf</div>
-                        <div>📄 BT2_NhatKyTieuChi_DanhGia_v1.1.xlsx</div>
-                        <div>📄 BT3_PromptEngineering_German_v2.0.docx</div>
-                        <div class="text-vintage-gold/60">↳ <i>Mô tả: Tệp tin được đặt tên khoa học theo chuẩn [TênBài]_[NộiDung]_[PhiênBản]</i></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div onclick="toggleFolder('folder-tiengduc')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-2">
-                        <i class="fa-regular fa-folder text-vintage-gold"></i>
-                        <span>📁 Nganh_NgonNguDuc_HocLieu/</span>
-                      </div>
-                      <div id="folder-tiengduc" class="pl-4 border-l border-vintage-mocha/50 space-y-1 ml-2 hidden">
-                        <div>📄 Duc_A2_Grammatik_Sammlung.pdf</div>
-                        <div>📄 BTL_VanHoaNuocDuc_Draft3.pptx</div>
+                      <div id="folder-thuchanh" class="pl-4 border-l border-vintage-mocha/50 space-y-2 ml-2">
+                        <div class="flex items-center gap-2">
+                          <i class="fa-regular fa-file-lines text-vintage-gold"></i>
+                          <span>📄 GhiChuQuanTrong.txt</span>
+                        </div>
+                        <div>
+                          <div onclick="toggleFolder('folder-tailieu')" class="cursor-pointer hover:text-vintage-gold transition-colors flex items-center gap-2">
+                            <i class="fa-regular fa-folder text-vintage-gold"></i>
+                            <span>📁 TaiLieu/</span>
+                          </div>
+                          <div id="folder-tailieu" class="pl-4 border-l border-vintage-mocha/50 space-y-1 ml-2 hidden">
+                            <div class="flex items-center gap-2 text-vintage-cream/80">
+                              <i class="fa-regular fa-file-lines text-vintage-gold/80"></i>
+                              <span>📄 GhiChuQuanTrong.txt (Sao chép)</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-vintage-cream/40">
+                              <i class="fa-regular fa-file-lines text-vintage-gold/20"></i>
+                              <span><del>📄 DiChuyen.txt (Đã xóa vĩnh viễn)</del></span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -439,7 +428,7 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 02 • ACADEMIC SEARCH STRATEGY</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">02. Thu Thập & Đánh Giá Tri Thức</h3>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">02. Chiến Lược Khai Thác & Đánh Giá</h3>
               </div>
               <div class="vintage-stamp stamp-approved w-16 h-16 text-[9px] text-vintage-olive flex flex-col justify-center">
                 <span>PASSED</span>
@@ -449,47 +438,77 @@
 
             <div class="space-y-4 text-sm text-vintage-charcoal">
               <p class="text-xs text-vintage-mocha italic">
-                Sử dụng các cú pháp nâng cao để lọc nguồn dữ liệu học thuật chất lượng về chủ đề: "Ứng dụng AI trong giảng dạy và tiếp thu ngoại ngữ (tiếng Đức)".
+                Nghiên cứu học thuật chủ đề: <b>"Ứng dụng các công cụ kỹ thuật số và Trí tuệ nhân tạo (AI) trong việc nâng cao hiệu quả tự học Ngôn ngữ và Văn hóa Đức cho sinh viên năm thứ nhất tại Việt Nam"</b> [INDEX].
               </p>
 
-              <!-- Bộ giả lập công cụ tìm kiếm toán tử -->
+              <!-- Bộ giả lập công cụ tìm kiếm toán tử thực tế -->
               <div class="bg-vintage-beige/40 p-3 rounded-xl border border-vintage-mocha/30">
-                <p class="text-xs font-bold text-vintage-olive mb-2"><i class="fa-solid fa-circle-play"></i> Thử nghiệm toán tử tìm kiếm nâng cao (Click vào bộ lọc):</p>
+                <p class="text-xs font-bold text-vintage-olive mb-2"><i class="fa-solid fa-circle-play"></i> Chọn bộ lọc toán tử tìm kiếm đa ngôn ngữ đã triển khai [INDEX]:</p>
                 <div class="flex flex-wrap gap-2 mb-3">
-                  <button onclick="applySearchQuery('site:edu.vn \"AI\" \"tiếng Đức\"')" class="px-2 py-1 bg-white border border-vintage-mocha text-[11px] rounded hover:bg-vintage-olive hover:text-white transition-all">Toán tử 1: site:edu.vn</button>
-                  <button onclick="applySearchQuery('\"KI im Deutschunterricht\" filetype:pdf')" class="px-2 py-1 bg-white border border-vintage-mocha text-[11px] rounded hover:bg-vintage-olive hover:text-white transition-all">Toán tử 2: filetype:pdf</button>
-                  <button onclick="applySearchQuery('intitle:\"fremdsprachen\" \"künstliche intelligenz\"')" class="px-2 py-1 bg-white border border-vintage-mocha text-[11px] rounded hover:bg-vintage-olive hover:text-white transition-all">Toán tử 3: intitle:</button>
+                  <button onclick="applySearchQuery('site:edu.vn \"công cụ số học tiếng Đức\"')" class="px-2 py-1 bg-white border border-vintage-mocha text-[10px] rounded hover:bg-vintage-olive hover:text-white transition-all">site:edu.vn (Việt)</button>
+                  <button onclick="applySearchQuery('\"digital tools for German learning\" filetype:pdf')" class="px-2 py-1 bg-white border border-vintage-mocha text-[10px] rounded hover:bg-vintage-olive hover:text-white transition-all">filetype:pdf (Anh)</button>
+                  <button onclick="applySearchQuery('\"Künstliche Intelligenz beim Sprachenlernen\"')" class="px-2 py-1 bg-white border border-vintage-mocha text-[10px] rounded hover:bg-vintage-olive hover:text-white transition-all">\" \" Exact Match (Đức)</button>
                 </div>
                 
                 <div class="flex gap-2">
-                  <input id="search-bar" type="text" class="w-full px-3 py-1.5 border border-vintage-mocha rounded text-xs font-mono" placeholder="Cú pháp tìm kiếm..." readonly>
+                  <input id="search-bar" type="text" class="w-full px-3 py-1.5 border border-vintage-mocha rounded text-xs font-mono" placeholder="Nhập cú pháp học thuật..." readonly>
                   <button onclick="simulateSearch()" class="px-4 py-1.5 bg-vintage-olive text-white text-xs rounded font-bold hover:bg-vintage-mocha transition-colors">TÌM KIẾM</button>
                 </div>
               </div>
 
-              <!-- Kết quả giả lập bảng đánh giá học thuật tiêu chuẩn -->
-              <div id="search-result-table" class="hidden text-xs overflow-x-auto border border-vintage-mocha/20 rounded-lg">
+              <!-- Kết quả giả lập bảng đánh giá CRAAP học thuật thực tế từ PDF 2 -->
+              <div id="search-result-table" class="hidden text-[11px] overflow-x-auto border border-vintage-mocha/20 rounded-lg max-h-[220px] overflow-y-auto">
                 <table class="w-full text-left border-collapse bg-white">
-                  <thead>
-                    <tr class="bg-vintage-beige/30 border-b border-vintage-mocha/20 text-vintage-olive">
-                      <th class="p-2 font-bold">Nguồn thông tin / Tài liệu học thuật</th>
-                      <th class="p-2 font-bold">Tính chuẩn xác</th>
-                      <th class="p-2 font-bold">Độ uy tín (CRAAP)</th>
-                      <th class="p-2 font-bold">Trạng thái duyệt</th>
+                  <thead class="sticky top-0 bg-vintage-beige">
+                    <tr class="border-b border-vintage-mocha/20 text-vintage-olive">
+                      <th class="p-2 font-bold">STT</th>
+                      <th class="p-2 font-bold">Tên tài liệu / Tác giả</th>
+                      <th class="p-2 font-bold">Phân loại nguồn</th>
+                      <th class="p-2 font-bold">CRAAP Rating</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-vintage-mocha/10">
+                  <tbody class="divide-y divide-vintage-mocha/10 text-vintage-charcoal">
                     <tr>
-                      <td class="p-2 font-semibold text-vintage-charcoal">"Künstliche Intelligenz beim Fremdsprachenlernen" (PDF, Springer Link)</td>
-                      <td class="p-2 text-green-700">Rất cao (Sách chuyên ngành xuất bản)</td>
-                      <td class="p-2 font-mono text-vintage-gold">★★★★★ (9.5/10)</td>
-                      <td class="p-2 text-green-600 font-bold"><i class="fa-solid fa-check-double"></i> Đã đưa vào danh mục tham khảo</td>
+                      <td class="p-2">1</td>
+                      <td class="p-2 font-semibold">Chuyển đổi số trong giảng dạy ngoại ngữ / Nguyễn (2022)</td>
+                      <td class="p-2">Tạp chí NC Nước ngoài</td>
+                      <td class="p-2 text-vintage-red font-bold">5.0 / 5.0</td>
                     </tr>
                     <tr>
-                      <td class="p-2 font-semibold text-vintage-charcoal">"Phương pháp tự học tiếng Đức qua ChatGPT" (Bài blog cá nhân)</td>
-                      <td class="p-2 text-yellow-600">Trung bình (Ý kiến cá nhân chủ quan)</td>
-                      <td class="p-2 font-mono text-vintage-gold">★★★☆☆ (5.0/10)</td>
-                      <td class="p-2 text-vintage-mocha font-bold">⚠ Chỉ dùng để tham khảo chung</td>
+                      <td class="p-2">2</td>
+                      <td class="p-2 font-semibold">Digital tools in DaF classrooms / Schmidt & Müller (2021)</td>
+                      <td class="p-2">Tạp chí Quốc tế Q1</td>
+                      <td class="p-2 text-vintage-red font-bold">5.0 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2">3</td>
+                      <td class="p-2 font-semibold">Ứng dụng di động trong tự học tiếng Đức / Hoàng (2023)</td>
+                      <td class="p-2">Tạp chí KH Ngoại ngữ</td>
+                      <td class="p-2 text-vintage-red font-bold">4.5 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2">4</td>
+                      <td class="p-2 font-semibold">AI-assisted language learning models / Baker (2024)</td>
+                      <td class="p-2">IEEE Transactions</td>
+                      <td class="p-2 text-vintage-red font-bold">5.0 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2">5</td>
+                      <td class="p-2 font-semibold">Đánh giá độ chính xác của DeepL / Phan (2024)</td>
+                      <td class="p-2">Tạp chí Ngôn ngữ & ĐS</td>
+                      <td class="p-2 text-vintage-red font-bold">4.5 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2">6</td>
+                      <td class="p-2 font-semibold">Digitalisierung im DaF-Unterricht / Meier (2020)</td>
+                      <td class="p-2">Sách chuyên khảo (Đức)</td>
+                      <td class="p-2 text-vintage-red font-bold">4.5 / 5.0</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2">7</td>
+                      <td class="p-2 font-semibold">Phương pháp công nghệ trong dạy học / Trần (2021)</td>
+                      <td class="p-2">Sách NXB ĐHQGHN</td>
+                      <td class="p-2 text-vintage-red font-bold">4.0 / 5.0</td>
                     </tr>
                   </tbody>
                 </table>
@@ -502,51 +521,50 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 03 • PROMPT ENGINEERING</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">03. Kiến Tạo Khẩu Lệnh Cho AI</h3>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">03. Kỹ Nghệ Gợi Ý Đa Phiên Bản</h3>
               </div>
-              <!-- Con dấu AI -->
               <div class="vintage-stamp w-16 h-16 text-[9px] text-vintage-red border-vintage-red flex flex-col justify-center">
-                <span>AI CODE</span>
+                <span>PROMPT</span>
                 <span class="font-mono text-[7px] border-t border-vintage-red mt-[2px]">MASTERED</span>
               </div>
             </div>
 
             <div class="space-y-4 text-sm text-vintage-charcoal">
               <p class="text-xs text-vintage-mocha">
-                Để AI hỗ trợ việc học ngữ pháp tiếng Đức hiệu quả nhất, tôi đã chuyển đổi từ những câu hỏi đơn giản, mơ hồ sang cấu trúc Prompt chuyên sâu theo mô hình chuẩn hóa.
+                Tôi đã xây dựng, thử nghiệm thực tế hệ thống Prompt 3 phiên bản (Cơ bản - Cải tiến - Nâng cao) trên Gemini phục vụ 3 tác vụ học tập cốt lõi [INDEX]:
               </p>
 
-              <!-- So sánh trực quan Prompt -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="border border-red-200 bg-red-50/50 p-3 rounded-xl">
-                  <span class="text-[10px] font-bold text-red-800 uppercase block mb-1"><i class="fa-solid fa-circle-xmark"></i> Prompt Ban Đầu (Sơ Sài)</span>
-                  <div class="bg-white p-3 rounded font-mono text-xs text-red-700 min-h-[90px]">
-                    "Dịch và giải thích hộ tôi cấu trúc mệnh đề quan hệ trong tiếng Đức."
-                  </div>
-                </div>
+              <!-- Selector Tác Vụ để xem chi tiết -->
+              <div class="flex gap-2 justify-center border-b border-vintage-mocha/20 pb-3">
+                <button onclick="switchPromptTask(1)" id="btn-ptask1" class="px-2 py-1 bg-vintage-olive text-white text-[10px] rounded font-mono font-bold transition-all">TÁC VỤ 1: TÓM TẮT DAF</button>
+                <button onclick="switchPromptTask(2)" id="btn-ptask2" class="px-2 py-1 bg-vintage-cream border border-vintage-mocha text-vintage-charcoal text-[10px] rounded font-mono font-bold transition-all">TÁC VỤ 2: AKKUSATIV / DATIV</button>
+                <button onclick="switchPromptTask(3)" id="btn-ptask3" class="px-2 py-1 bg-vintage-cream border border-vintage-mocha text-vintage-charcoal text-[10px] rounded font-mono font-bold transition-all">TÁC VỤ 3: LỊCH SỬ BERLIN</button>
+              </div>
 
-                <div class="border border-green-200 bg-green-50/50 p-3 rounded-xl">
-                  <span class="text-[10px] font-bold text-green-800 uppercase block mb-1"><i class="fa-solid fa-circle-check"></i> Prompt Cải Tiến (Chuyên Nghiệp)</span>
-                  <div class="bg-white p-3 rounded font-mono text-xs text-green-800 min-h-[90px]">
-                    "<b>Vai trò:</b> Giảng viên bản ngữ tiếng Đức.<br>
-                    <b>Bối cảnh:</b> Tôi là sinh viên năm nhất đang ôn tập cấu trúc Relativsatz (Mệnh đề quan hệ).<br>
-                    <b>Nhiệm vụ:</b> Tạo 3 ví dụ thực tế chuẩn B1 kèm phân tích vị trí động từ cuối câu.<br>
-                    <b>Định dạng:</b> Sử dụng bảng so sánh trực quan."
-                  </div>
+              <div id="prompt-content-area" class="space-y-3">
+                <!-- Nội dung Tác vụ 1 mặc định -->
+                <div class="bg-vintage-cream/30 p-3 rounded-lg border border-vintage-mocha/10">
+                  <span class="text-[10px] font-bold text-vintage-olive block uppercase mb-1">Phiên bản Nâng cao (Role + Chain-of-Thought) [INDEX]</span>
+                  <p class="text-xs font-mono bg-white p-2.5 rounded border border-vintage-mocha/20 leading-relaxed text-vintage-charcoal/90">
+                    "Bạn là một chuyên gia ngôn ngữ học ứng dụng chuyên sâu về giảng dạy tiếng Đức (DaF) tại ULIS [INDEX]. Hãy đọc tài liệu học thuật dưới đây và thực hiện tóm tắt theo quy trình từng bước (Chain-of-Thought):<br>
+                    - Bước 1: Trích xuất 3 phương pháp ghi nhớ từ vựng được tác giả chứng minh hiệu quả nhất [INDEX].<br>
+                    - Bước 2: Phân tích ngắn gọn ưu và nhược điểm của từng phương pháp đối với sinh viên năm nhất Việt Nam [INDEX].<br>
+                    - Bước 3: Tổng hợp thành một lời khuyên hành động cụ thể dài không quá 100 từ [INDEX]."
+                  </p>
                 </div>
               </div>
 
-              <!-- Nút bấm chạy mô phỏng kết quả -->
+              <!-- Nút mô phỏng kích hoạt prompt -->
               <div class="text-center">
-                <button onclick="simulatePromptResponse()" class="px-6 py-2.5 bg-vintage-olive text-white text-xs font-bold tracking-wider rounded shadow hover:bg-vintage-mocha transition-all flex items-center gap-2 mx-auto">
+                <button onclick="simulatePromptResponse()" class="px-6 py-2 bg-vintage-olive text-white text-xs font-bold tracking-wider rounded shadow hover:bg-vintage-mocha transition-all flex items-center gap-2 mx-auto">
                   <i class="fa-solid fa-microchip animate-spin-slow"></i>
-                  <span>CHẠY THỬ NGHIỆM PROMPT ĐỂ XEM KẾT QUẢ AI SẢN SINH</span>
+                  <span>MÔ PHỎNG PHẢN HỒI SƯ PHẠM CỦA GEMINI</span>
                 </button>
               </div>
 
-              <!-- Khung kết quả AI sinh (Hiệu ứng đánh máy) -->
-              <div id="ai-response-box" class="hidden bg-vintage-charcoal text-vintage-cream p-4 rounded-xl font-mono text-xs shadow-inner min-h-[100px] max-h-[150px] overflow-y-auto">
-                <p class="text-vintage-gold text-[10px] mb-1">// KẾT QUẢ TRẢ VỀ TỪ MÔ PHỎNG TRÍ TUỆ NHÂN TẠO:</p>
+              <!-- Hộp kết quả đầu ra AI -->
+              <div id="ai-response-box" class="hidden bg-vintage-charcoal text-vintage-cream p-4 rounded-xl font-mono text-xs shadow-inner min-h-[90px] max-h-[140px] overflow-y-auto">
+                <p class="text-vintage-gold text-[10px] mb-1">// KẾT QUẢ PHẢN HỒI CHUYÊN GIA SƯ PHẠM:</p>
                 <div id="ai-response-text" class="leading-relaxed"></div>
               </div>
             </div>
@@ -557,7 +575,7 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 04 • DIGITAL COLLABORATION</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">04. Kết Nối Đồng Đội Trong Không Gian Số</h3>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">04. Không Gian Làm Việc Cộng Tác Số</h3>
               </div>
               <div class="vintage-stamp stamp-approved w-16 h-16 text-[9px] text-vintage-olive flex flex-col justify-center">
                 <span>COLLAB</span>
@@ -567,43 +585,57 @@
 
             <div class="space-y-4 text-sm text-vintage-charcoal">
               <p class="text-xs text-vintage-mocha">
-                Quá trình thực hiện bài tập lớn nhóm được số hóa bằng bảng Kanban trên Notion, giúp phân công công việc, quản lý lịch trình khoa học và lưu trữ kết quả của các thành viên.
+                Nhật ký minh chứng kỹ năng quản trị và tổ chức hạ tầng trực tuyến cho dự án nhóm liên ngành của tôi [INDEX]:
               </p>
 
-              <!-- Widget tương tác: Bảng Kanban số hóa dự án nhóm -->
-              <div class="bg-vintage-beige/20 p-4 rounded-xl border border-vintage-mocha/30">
-                <p class="text-[10px] uppercase font-bold text-vintage-olive mb-3"><i class="fa-solid fa-bars-progress"></i> Bảng tiến độ nhóm (Click vào thẻ việc làm để thay đổi tiến độ thực tế):</p>
+              <!-- Tabs quản lý công cụ nhóm -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="p-3 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
+                  <span class="font-bold text-vintage-olive block mb-1"><i class="fa-brands fa-trello"></i> Trello Kanban (Thực tế)</span>
+                  <ul class="space-y-1 text-vintage-charcoal/80 pl-1">
+                    <li>• <b>InProgress:</b> Thiết kế Slide / Infographic, chuẩn bị Graphic Assets [INDEX].</li>
+                    <li>• <b>NeedToFix:</b> Setup bối cảnh quay và ghi hình phỏng vấn nhóm [INDEX].</li>
+                  </ul>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <!-- Cần Làm -->
-                  <div class="bg-white p-3 rounded-lg border border-vintage-mocha/20">
-                    <span class="text-[10px] uppercase font-mono font-bold text-vintage-red bg-red-50 px-2 py-0.5 rounded">CẦN LÀM</span>
-                    <div id="col-todo" class="mt-3 space-y-2">
-                      <div onclick="moveTask(this, 'col-inprogress')" class="p-2 bg-vintage-cream/30 rounded border border-vintage-mocha/10 cursor-pointer hover:bg-vintage-beige/40 transition-all shadow-sm">
-                        <p class="text-xs font-semibold text-vintage-charcoal">Hiệu đính bài dịch tiếng Đức</p>
-                        <span class="text-[9px] text-vintage-mocha font-mono">Người làm: Bảo Ngọc</span>
+                <div class="p-3 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
+                  <span class="font-bold text-vintage-olive block mb-1"><i class="fa-brands fa-google-drive"></i> Sơ đồ Google Drive (Đa cấp)</span>
+                  <p class="text-[11px] text-vintage-charcoal/80 font-mono">
+                    📁 01. Đề cương dự án<br>
+                    📁 02. Nghiên cứu & Dữ liệu<br>
+                    📁 05. Nội dung & Biên tập<br>
+                    📄 BC_CaNhan_V1.0.pdf [INDEX]
+                  </p>
+                </div>
+
+                <div class="p-3 bg-vintage-cream/30 border border-vintage-mocha/20 rounded-lg text-xs">
+                  <span class="font-bold text-vintage-olive block mb-1"><i class="fa-brands fa-discord"></i> Giao tiếp Discord</span>
+                  <p class="text-[11px] text-vintage-charcoal/80 italic">
+                    Hơn 10 lượt tương tác điều phối hàng tuần, báo cáo tiến trình biên tập nội dung, phản biện mốc thời gian lịch sử [INDEX].
+                  </p>
+                </div>
+              </div>
+
+              <!-- Widget tương tác Kanban mô phỏng tiến trình thực tế -->
+              <div class="bg-vintage-beige/20 p-3 rounded-xl border border-vintage-mocha/30">
+                <p class="text-[10px] uppercase font-bold text-vintage-olive mb-2"><i class="fa-solid fa-bars-progress"></i> Trạng thái Kanban thực tế (Click để dời cột tương tác):</p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="bg-white p-2 rounded border border-vintage-mocha/20">
+                    <span class="text-[9px] font-bold text-vintage-red block mb-1">IN PROGRESS</span>
+                    <div id="col-inprogress" class="space-y-1 text-[10px]">
+                      <div onclick="moveTask(this, 'col-done')" class="p-1.5 bg-vintage-cream/50 rounded cursor-pointer hover:bg-vintage-beige/40">
+                        <p class="font-semibold">Thiết kế Slide & Infographic</p>
+                        <span class="text-[8px] text-vintage-mocha">Đặng Bảo Ngọc phụ trách [INDEX]</span>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Đang Làm -->
-                  <div class="bg-white p-3 rounded-lg border border-vintage-mocha/20">
-                    <span class="text-[10px] uppercase font-mono font-bold text-yellow-800 bg-yellow-50 px-2 py-0.5 rounded">ĐANG LÀM</span>
-                    <div id="col-inprogress" class="mt-3 space-y-2">
-                      <div onclick="moveTask(this, 'col-done')" class="p-2 bg-vintage-cream/30 rounded border border-vintage-mocha/10 cursor-pointer hover:bg-vintage-beige/40 transition-all shadow-sm">
-                        <p class="text-xs font-semibold text-vintage-charcoal">Thiết kế Slide Canva chung</p>
-                        <span class="text-[9px] text-vintage-mocha font-mono">Người làm: Khánh Ly</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Hoàn Thành -->
-                  <div class="bg-white p-3 rounded-lg border border-vintage-mocha/20">
-                    <span class="text-[10px] uppercase font-mono font-bold text-green-800 bg-green-50 px-2 py-0.5 rounded">HOÀN THÀNH</span>
-                    <div id="col-done" class="mt-3 space-y-2">
-                      <div onclick="moveTask(this, 'col-todo')" class="p-2 bg-vintage-cream/30 rounded border border-vintage-mocha/10 cursor-pointer hover:bg-vintage-beige/40 transition-all shadow-sm">
-                        <p class="text-xs font-semibold text-vintage-charcoal">Xây dựng dàn ý nghiên cứu</p>
-                        <span class="text-[9px] text-green-700 font-mono">Trạng thái: Đạt yêu cầu</span>
+                  
+                  <div class="bg-white p-2 rounded border border-vintage-mocha/20">
+                    <span class="text-[9px] font-bold text-green-700 block mb-1">DONE</span>
+                    <div id="col-done" class="space-y-1 text-[10px]">
+                      <div onclick="moveTask(this, 'col-inprogress')" class="p-1.5 bg-vintage-cream/50 rounded cursor-pointer hover:bg-vintage-beige/40">
+                        <p class="font-semibold">Xây dựng đề án tổng thể</p>
+                        <span class="text-[8px] text-green-700">Đã đồng bộ Drive [INDEX]</span>
                       </div>
                     </div>
                   </div>
@@ -617,9 +649,8 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 05 • GENERATIVE AI CREATION</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">05. Đồng Sáng Tạo Cùng Trí Tuệ Nhân Tạo</h3>
+                <h3 class="font-playfair text-2xl font-bold text-vintage-olive">05. Đồng Sáng Tạo Tập San Kỹ Thuật Số</h3>
               </div>
-              <!-- Con dấu Berlin -->
               <div class="vintage-stamp w-16 h-16 text-[9px] text-vintage-mocha border-vintage-mocha flex flex-col justify-center">
                 <span>GEN AI</span>
                 <span class="font-mono text-[7px] border-t border-vintage-mocha mt-[2px]">CREATIVE</span>
@@ -628,43 +659,31 @@
 
             <div class="space-y-4 text-sm text-vintage-charcoal">
               <p class="text-xs text-vintage-mocha">
-                Để tạo một cuốn tập san du lịch văn hóa nước Đức phong cách cổ điển, tôi đã đồng hành phối hợp cùng AI để phát triển ngôn từ văn bản kết hợp sinh ảnh tư liệu chân thực.
+                Dự án sáng tạo: <b>"Thiết kế bộ sản phẩm Infographic hướng dẫn phương pháp tự học từ vựng tiếng Đức hiệu quả cho tân sinh viên ULIS"</b> [INDEX].
               </p>
 
-              <!-- Trưng bày sản phẩm sáng tạo ảnh AI phong cách vintage châu Âu -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="border border-vintage-mocha/30 rounded-xl overflow-hidden shadow-sm bg-vintage-cream/30 flex flex-col justify-between">
+                <div class="border border-vintage-mocha/30 rounded-xl overflow-hidden shadow-sm bg-vintage-cream/30 p-3 flex flex-col justify-between">
                   <!-- Tranh vẽ giả lập bưu thiếp bằng CSS phối màu tinh tế -->
-                  <div class="h-44 w-full bg-gradient-to-t from-[#c2a67a]/40 to-vintage-beige flex items-center justify-center p-4 relative">
-                    <!-- Khung ảnh Polaroid -->
-                    <div class="bg-white p-2 pb-6 shadow-md transform -rotate-3 hover:rotate-0 transition-transform duration-300 w-36">
-                      <div class="h-24 bg-gradient-to-br from-yellow-100 to-amber-200 flex items-center justify-center relative">
-                        <i class="fa-solid fa-train-subway text-4xl text-vintage-mocha"></i>
-                        <span class="absolute bottom-1 right-1 text-[8px] font-mono text-vintage-mocha opacity-70">AI Generated</span>
-                      </div>
-                      <p class="text-[9px] font-mono mt-1 text-center text-vintage-charcoal">Kölner Dom, 2026</p>
+                  <div class="h-32 w-full bg-[#1e2d24] flex flex-col items-center justify-center p-3 relative rounded-lg">
+                    <div class="w-16 h-16 rounded-full border-2 border-vintage-gold flex items-center justify-center text-vintage-gold text-2xl">
+                      <i class="fa-solid fa-brain"></i>
                     </div>
-                    <!-- Tem thư trang trí -->
-                    <div class="absolute top-2 right-2 border-2 border-dashed border-vintage-red/50 text-vintage-red/50 font-mono text-[8px] p-1 transform rotate-12 uppercase">
-                      POST CARD
-                    </div>
+                    <p class="text-vintage-gold font-mono text-xs mt-2">DaF - ULIS [INDEX]</p>
                   </div>
-                  <div class="p-3 border-t border-vintage-mocha/20">
-                    <span class="text-[9px] font-mono text-vintage-olive block">Cú pháp sinh ảnh / Prompt:</span>
-                    <p class="text-xs font-serif italic text-vintage-charcoal mt-1">
-                      "A vintage travel postcard of Cologne Cathedral, soft warm sunlight, historical mood, detailed oil painting style --ar 16:9"
+                  <div class="mt-2 text-[11px] text-vintage-charcoal">
+                    <span class="font-mono text-vintage-olive font-semibold">Prompt Nano Banana Pro [INDEX]:</span>
+                    <p class="italic text-vintage-mocha leading-snug mt-1">
+                      "Tạo biểu tượng vector phẳng, nền trắng tối giản, bộ não kết nối từ vựng tiếng Đức bằng các sợi dây ánh sáng neon, hiển thị rõ nét chữ 'DaF'..." [INDEX]
                     </p>
                   </div>
                 </div>
 
-                <div class="p-4 border border-vintage-mocha/20 rounded-xl bg-vintage-cream/10 space-y-3">
-                  <span class="text-[10px] uppercase font-bold text-vintage-olive block"><i class="fa-solid fa-feather-pointed"></i> Văn bản đồng sáng tạo (Việt - Đức):</span>
-                  <div class="text-xs space-y-2 font-serif text-vintage-charcoal leading-relaxed">
-                    <p class="font-bold text-vintage-olive">Du ngoạn ngắm sông Rhein qua góc nhìn mới</p>
-                    <p class="italic text-vintage-mocha">"Eine Reise am Rhein ist wie eine Reise durch die Zeit. Lassen Sie sich von den historischen Landschaften verzaubern."</p>
-                    <p class="text-vintage-charcoal/80 text-[11px]">
-                      Hành trình dọc sông Rhein mang đến trải nghiệm như đi xuyên qua thời gian, khám phá những pháo đài cổ kính được phục dựng sống động nhờ công nghệ số hiện đại.
-                    </p>
+                <div class="p-3 border border-vintage-mocha/20 rounded-xl bg-vintage-cream/10 space-y-2 text-xs">
+                  <span class="font-bold text-vintage-olive block"><i class="fa-solid fa-wand-magic-sparkles"></i> Hệ sinh thái GenAI trợ lực [INDEX]:</span>
+                  <div class="space-y-1.5 pl-1 text-vintage-charcoal/80">
+                    <p>• <b>Google Gemini (Văn bản):</b> Nghiên cứu lý thuyết Flashcards, Mindmap, Loci-Methode song ngữ Đức - Việt (gọt giũa 60% văn bản thô) [INDEX].</p>
+                    <p>• <b>Canva AI (Layout):</b> Tự động hóa đồng bộ bảng mã màu, hiệu chỉnh Visual Hierarchy theo nhận diện thương hiệu nhà trường [INDEX].</p>
                   </div>
                 </div>
               </div>
@@ -676,7 +695,7 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 06 • ETHICAL COMPLIANCE</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">06. Đạo Đức Số Trong Kỷ Nguyên Trí Tuệ Nhân Tạo</h3>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">06. Sáu Quy Tắc Đạo Đức Số</h3>
               </div>
               <div class="vintage-stamp stamp-approved w-16 h-16 text-[9px] text-vintage-red border-vintage-red flex flex-col justify-center">
                 <span>SECURED</span>
@@ -684,47 +703,39 @@
               </div>
             </div>
 
-            <div class="space-y-4 text-sm text-vintage-charcoal">
+            <div class="space-y-3 text-sm text-vintage-charcoal">
               <p class="text-xs text-vintage-mocha">
-                Để ứng dụng công nghệ bền vững, tôi cam kết tuân thủ 4 nguyên tắc đạo đức cốt lõi khi sử dụng trí tuệ nhân tạo trong các hoạt động nghiên cứu khoa học và dịch thuật.
+                Để bảo vệ liêm chính học thuật, tôi tuân thủ nghiêm ngặt bộ 6 quy tắc ứng xử AI thiết kế trực tiếp bằng mã nguồn LaTeX TikZ [INDEX]:
               </p>
 
-              <!-- Widget tương tác: Danh sách cam kết đóng dấu -->
-              <div class="space-y-2">
-                <div class="p-3 border border-vintage-mocha/20 rounded-lg hover:bg-vintage-cream/20 transition-all flex items-center justify-between cursor-pointer" onclick="toggleEthicCheck(this)">
-                  <div class="flex items-center gap-3">
-                    <span class="w-6 h-6 rounded-full bg-vintage-olive/20 text-vintage-olive flex items-center justify-center text-xs font-bold">1</span>
-                    <div>
-                      <h4 class="text-xs font-bold text-vintage-charcoal">Minh bạch hóa việc ứng dụng trí tuệ nhân tạo (Transparency)</h4>
-                      <p class="text-[10px] text-vintage-mocha">Mọi bài tập có hỗ trợ bởi AI đều được ghi rõ phương thức và phạm vi can thiệp.</p>
-                    </div>
-                  </div>
-                  <span class="ethic-seal text-[10px] font-mono text-vintage-red border border-vintage-red px-1.5 py-0.5 rounded opacity-0 transform rotate-12 transition-all">ĐÃ CAM KẾT</span>
+              <!-- Widget tương tác: Quy tắc đạo đức -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px]">
+                <div class="p-2 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>1. Con người làm chủ (Chịu trách nhiệm cuối) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
                 </div>
-
-                <div class="p-3 border border-vintage-mocha/20 rounded-lg hover:bg-vintage-cream/20 transition-all flex items-center justify-between cursor-pointer" onclick="toggleEthicCheck(this)">
-                  <div class="flex items-center gap-3">
-                    <span class="w-6 h-6 rounded-full bg-vintage-olive/20 text-vintage-olive flex items-center justify-center text-xs font-bold">2</span>
-                    <div>
-                      <h4 class="text-xs font-bold text-vintage-charcoal">Độc lập kiểm chứng nguồn tin gốc (Verification)</h4>
-                      <p class="text-[10px] text-vintage-mocha">Không sử dụng nguyên bản thông tin từ AI khi chưa xác thực chéo với các tài liệu chính thống.</p>
-                    </div>
-                  </div>
-                  <span class="ethic-seal text-[10px] font-mono text-vintage-red border border-vintage-red px-1.5 py-0.5 rounded opacity-0 transform rotate-12 transition-all">ĐÃ CAM KẾT</span>
+                <div class="p-2 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>2. Minh bạch tuyệt đối (Khai báo trung thực) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
                 </div>
-
-                <div class="p-3 border border-vintage-mocha/20 rounded-lg hover:bg-vintage-cream/20 transition-all flex items-center justify-between cursor-pointer" onclick="toggleEthicCheck(this)">
-                  <div class="flex items-center gap-3">
-                    <span class="w-6 h-6 rounded-full bg-vintage-olive/20 text-vintage-olive flex items-center justify-center text-xs font-bold">3</span>
-                    <div>
-                      <h4 class="text-xs font-bold text-vintage-charcoal">Bảo mật thông tin cá nhân (Privacy)</h4>
-                      <p class="text-[10px] text-vintage-mocha">Không đưa các tài liệu cá nhân, thông tin bảo mật của nhà trường và đồng đội lên hệ thống AI công cộng.</p>
-                    </div>
-                  </div>
-                  <span class="ethic-seal text-[10px] font-mono text-vintage-red border border-vintage-red px-1.5 py-0.5 rounded opacity-0 transform rotate-12 transition-all">ĐÃ CAM KẾT</span>
+                <div class="p-2 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>3. Nghiêm cấm sao chép thô (Không Copy-Paste) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-2 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>4. Kiểm chứng độc lập (Đối chiếu tài liệu gốc) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-2 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>5. Bảo mật dữ liệu (Không tải đề thi nội bộ) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
+                </div>
+                <div class="p-2 border border-vintage-mocha/20 rounded hover:bg-vintage-cream/20 transition-all flex justify-between items-center cursor-pointer" onclick="toggleEthicCheck(this)">
+                  <span>6. Ưu tiên rèn luyện nội lực (Chỉ dùng khi cần) [INDEX]</span>
+                  <span class="ethic-seal text-[8px] font-mono text-vintage-red border border-vintage-red px-1 rounded opacity-0">CAM KẾT</span>
                 </div>
               </div>
-              <p class="text-[10px] text-vintage-mocha italic text-center">* Nhấp vào từng dòng ở trên để thực hiện cam kết đạo đức số.</p>
+              <p class="text-[9px] text-vintage-mocha italic text-center">* Nhấp chọn từng quy tắc ở trên để thực hiện ký cam kết liêm chính học thuật [INDEX].</p>
             </div>
           </div>
 
@@ -732,10 +743,9 @@
           <div id="page-reflection" class="page-content hidden fade-in-up">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG CUỐI • ARIVAL STAMP</span>
-                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">07. Điểm Kết Thúc & Khởi Đầu Mới</h3>
+                <span class="text-xs font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG CUỐI • ARRIVAL STAMP</span>
+                <h3 class="font-playfair text-3xl font-bold text-vintage-olive">07. Tổng Kết Hành Trình Cá Nhân</h3>
               </div>
-              <!-- Con dấu Hành trình hoàn thành -->
               <div class="vintage-stamp stamp-approved w-20 h-20 text-[10px] text-vintage-olive flex flex-col justify-center border-vintage-gold text-vintage-gold">
                 <span>ULIS-VNU</span>
                 <span class="font-mono text-[8px] border-t border-vintage-gold mt-[2px] font-bold">ARRIVED</span>
@@ -744,29 +754,33 @@
 
             <div class="space-y-4 text-sm text-vintage-charcoal leading-relaxed">
               <p class="italic text-vintage-mocha text-xs">
-                "Hành trình học tập này giúp tôi hiểu rằng công nghệ số không thay thế con người, mà nó mở ra một chân trời mới để chúng ta khai phá sâu sắc năng lực tư duy của chính mình."
+                "Hoàn thành các bài tập lớn giúp tôi hiểu sâu sắc rằng, ngoại ngữ và công nghệ số là đôi cánh không thể tách rời của một thế hệ sinh viên ULIS năng động và tự chủ." [INDEX]
               </p>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-vintage-cream/40 p-3 rounded-lg border border-vintage-mocha/20">
-                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-1"><i class="fa-solid fa-graduation-cap"></i> Trải nghiệm & Trưởng thành</h4>
-                  <p class="text-[11px]">Từ tâm thế bỡ ngỡ ban đầu, tôi đã vượt qua rào cản sợ công nghệ của một sinh viên ngoại ngữ để tự tin thiết kế và quản trị cấu trúc thông tin cá nhân một cách có hệ thống.</p>
+                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-1"><i class="fa-solid fa-graduation-cap"></i> Nhận thức khoa học</h4>
+                  <p class="text-[11px] leading-relaxed text-vintage-charcoal/80">
+                    Tôi đã vượt qua rào cản công nghệ số ban đầu, rèn luyện tư duy logic khi viết Prompt, quản lý thư mục bài bản và học cách cộng tác chặt chẽ cùng đồng đội từ xa [INDEX].
+                  </p>
                 </div>
                 <div class="bg-vintage-cream/40 p-3 rounded-lg border border-vintage-mocha/20">
-                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-1"><i class="fa-solid fa-seedling"></i> Khát vọng tương lai</h4>
-                  <p class="text-[11px]">Tôi đặt mục tiêu tích hợp nhuần nhuyễn AI vào công việc dịch thuật Đức - Việt, kết nối các giá trị văn hóa song phương với hiệu suất lao động vượt trội trong kỷ nguyên số.</p>
+                  <h4 class="text-xs font-bold text-vintage-olive uppercase mb-1"><i class="fa-solid fa-seedling"></i> Thực tiễn nghề nghiệp</h4>
+                  <p class="text-[11px] leading-relaxed text-vintage-charcoal/80">
+                    Việc số hóa dữ liệu học tập và tối ưu hóa quy trình dịch thuật sẽ là nền tảng cốt lõi giúp tôi trở thành một nhà ngôn ngữ thế hệ mới trong bối cảnh công nghệ bùng nổ [INDEX].
+                  </p>
                 </div>
               </div>
 
-              <!-- Nút tải file dự án PDF hoàn chỉnh giả lập theo đề bài -->
-              <div class="mt-4 p-4 border border-dashed border-vintage-mocha/40 rounded-xl bg-vintage-cream/20 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div>
-                  <h5 class="text-xs font-bold text-vintage-charcoal">Tải tệp PDF Học liệu Tổng hợp</h5>
-                  <p class="text-[10px] text-vintage-mocha">Phục vụ lưu trữ hồ sơ và đánh giá năng lực theo đề bài.</p>
+              <!-- Thư mục liên kết ngoài -->
+              <div class="p-3 border border-dashed border-vintage-mocha/40 rounded-xl bg-vintage-cream/20 flex flex-col md:flex-row items-center justify-between gap-3">
+                <div class="text-center md:text-left">
+                  <h5 class="text-xs font-bold text-vintage-charcoal">Thư mục Bài tập Lớn (Google Drive)</h5>
+                  <p class="text-[10px] text-vintage-mocha">Chứa toàn bộ mã nguồn TikZ, bài viết PDF và tài liệu báo cáo đầy đủ.</p>
                 </div>
-                <a href="#" onclick="alert('Bắt đầu tải file PDF giả lập của dự án!'); return false;" class="px-4 py-2 bg-vintage-olive text-white text-xs font-mono rounded hover:bg-vintage-mocha transition-all flex items-center gap-2 shadow">
-                  <i class="fa-solid fa-file-pdf"></i>
-                  <span>DOWNLOAD_PORTFOLIO.PDF</span>
+                <a href="https://drive.google.com/drive/folders/1hjXiHyid9KhHjgWkb8tpIvMyBbca8C8X?usp=drive_link" target="_blank" class="px-4 py-2 bg-vintage-olive text-white text-xs font-mono rounded hover:bg-vintage-mocha transition-all flex items-center gap-2 shadow">
+                  <i class="fa-brands fa-google-drive"></i>
+                  <span>OPEN_GOOGLE_DRIVE</span>
                 </a>
               </div>
             </div>
@@ -807,7 +821,7 @@
         const ctx = new AudioContext();
         
         // Tạo nhiễu trắng ngẫu nhiên (White Noise)
-        const bufferSize = ctx.sampleRate * 0.25; // 0.25 giây lật giấy nhanh
+        const bufferSize = ctx.sampleRate * 0.25; 
         const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const data = buffer.getChannelData(0);
         for (let i = 0; i < bufferSize; i++) {
@@ -817,13 +831,11 @@
         const noise = ctx.createBufferSource();
         noise.buffer = buffer;
         
-        // Bộ lọc dải thông giúp âm thanh giống tiếng quét giấy nhẹ
         const filter = ctx.createBiquadFilter();
         filter.type = 'bandpass';
         filter.frequency.value = 1100;
         filter.Q.value = 0.6;
         
-        // Biểu đồ âm lượng phai dần tinh tế
         const gain = ctx.createGain();
         gain.gain.setValueAtTime(0, ctx.currentTime);
         gain.gain.linearRampToValueAtTime(0.06, ctx.currentTime + 0.04);
@@ -843,7 +855,6 @@
     function triggerPaperPlane() {
       const plane = document.getElementById('paper-plane');
       plane.classList.remove('paper-plane-active');
-      // Buộc trình duyệt vẽ lại (reflow) để reset hoạt ảnh CSS
       void plane.offsetWidth; 
       plane.classList.add('paper-plane-active');
     }
@@ -891,36 +902,30 @@
       
       currentPageIndex = index;
       
-      // Ẩn tất cả các trang nội dung
       document.querySelectorAll('.page-content').forEach(p => {
         p.classList.add('hidden');
       });
       
-      // Hiện trang được chọn
       document.getElementById('page-' + pageId).classList.remove('hidden');
       
       updateNavigationState();
     }
 
-    // Chuyển về trang trước
     function navigatePrev() {
       if (currentPageIndex > 0) {
         changePage(pageIds[currentPageIndex - 1]);
       }
     }
 
-    // Tiến tới trang sau
     function navigateNext() {
       if (currentPageIndex < pageIds.length - 1) {
         changePage(pageIds[currentPageIndex + 1]);
       }
     }
 
-    // Cập nhật trạng thái hiển thị của thanh điều hướng và chỉ số trang
     function updateNavigationState() {
       const currentId = pageIds[currentPageIndex];
       
-      // Cập nhật menu điều hướng bên trái
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('bg-vintage-olive', 'text-white', 'shadow-sm');
         btn.classList.add('hover:bg-vintage-mocha/10', 'text-vintage-charcoal');
@@ -932,10 +937,8 @@
         activeBtn.classList.add('bg-vintage-olive', 'text-white', 'shadow-sm');
       }
 
-      // Cập nhật chỉ số trang phía dưới
       document.getElementById('page-indicator').innerText = `TRANG ${currentPageIndex + 1} / ${pageIds.length}`;
       
-      // Khóa hoặc mở khóa nút tiến/lùi
       document.getElementById('prev-btn').style.opacity = currentPageIndex === 0 ? '0.3' : '1';
       document.getElementById('prev-btn').disabled = currentPageIndex === 0;
       
@@ -943,7 +946,7 @@
       document.getElementById('next-btn').disabled = currentPageIndex === pageIds.length - 1;
     }
 
-    // Tương tác thư mục cho bài tập 01
+    // Tương tác thư mục
     function toggleFolder(id) {
       const el = document.getElementById(id);
       if (el) {
@@ -952,7 +955,7 @@
       }
     }
 
-    // Tương tác bộ lọc tìm kiếm nâng cao bài tập 02
+    // Tương tác tìm kiếm
     function applySearchQuery(query) {
       const searchBar = document.getElementById('search-bar');
       searchBar.value = query;
@@ -971,7 +974,51 @@
       resultTable.classList.add('fade-in-up');
     }
 
-    // Tương tác giả lập văn bản phản hồi của Trí tuệ nhân tạo (Bài tập 03)
+    // Dữ liệu Prompt Engineering động
+    const promptData = {
+      1: {
+        title: "Phiên bản Nâng cao (Role + Chain-of-Thought) [INDEX]",
+        content: `"Bạn là một chuyên gia ngôn ngữ học ứng dụng chuyên sâu về giảng dạy tiếng Đức (DaF) tại ULIS [INDEX]. Hãy đọc tài liệu học thuật dưới đây và thực hiện tóm tắt theo quy trình từng bước (Chain-of-Thought):<br>- Bước 1: Trích xuất 3 phương pháp ghi nhớ từ vựng được tác giả chứng minh hiệu quả nhất [INDEX].<br>- Bước 2: Phân tích ngắn gọn ưu và nhược điểm của từng phương pháp đối với sinh viên năm nhất Việt Nam [INDEX].<br>- Bước 3: Tổng hợp thành một lời khuyên hành động cụ thể dài không quá 100 từ [INDEX]."`
+      },
+      2: {
+        title: "Phiên bản Nâng cao (Role + Few-shot + Analogy) [INDEX]",
+        content: `"Bạn là một trợ giảng bản xứ dạy tiếng Đức vui tính, có khả năng sư phạm xuất sắc. Hãy giải thích khái niệm 'Sự khác biệt giữa Akkusativ và Dativ khi đi với giới từ song hướng (Wechselpräpositionen)' cho một tân sinh viên năm nhất đang bị nhầm lẫn [INDEX].<br>Hãy áp dụng phương pháp so sánh ẩn dụ trực quan (ví dụ: hành động chuyển động vs trạng thái cố định) [INDEX].<br>Sử dụng kỹ thuật Few-shot với cấu trúc ví dụ chuẩn sau:<br>- Giới từ + Akkusativ (Chuyển động): Ich lege das Buch auf den Tisch. (Đặt cuốn sách xuống) [INDEX].<br>- Giới từ + Dativ (Cố định): Das Buch liegt auf dem Tisch. (Cuốn sách đã nằm yên trên bàn) [INDEX]."`
+      },
+      3: {
+        title: "Phiên bản Nâng cao (Role + Multi-turn Specification) [INDEX]",
+        content: `"Bạn là một chuyên gia khảo thí và xây dựng chương trình môn Đất nước học Đức tại Đại học Quốc gia. Hãy thiết lập một bộ đề ôn tập kết hợp gồm 3 câu hỏi trắc nghiệm khách quan (đánh giá kiến thức nền tảng về năm 1961 và 1989) và 1 câu hỏi tự luận ngắn [INDEX]... Đối với câu hỏi tự luận, hãy cung cấp rõ ràng: (1) Tiêu chí chấm điểm (Rubric) cụ thể, (2) Các từ khóa quan trọng cần có trong bài làm để đạt điểm tối đa như 'Wiedervereinigung', 'Mauerfall', 'Ostdeutschland' [INDEX]."`
+      }
+    };
+
+    let activePromptTask = 1;
+
+    function switchPromptTask(taskId) {
+      activePromptTask = taskId;
+      playPageTurnSound();
+      
+      // Reset active button styling
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById('btn-ptask' + i);
+        if (i === taskId) {
+          btn.className = "px-2 py-1 bg-vintage-olive text-white text-[10px] rounded font-mono font-bold transition-all";
+        } else {
+          btn.className = "px-2 py-1 bg-vintage-cream border border-vintage-mocha text-vintage-charcoal text-[10px] rounded font-mono font-bold transition-all";
+        }
+      }
+
+      // Update content
+      const container = document.getElementById('prompt-content-area');
+      container.innerHTML = `
+        <div class="bg-vintage-cream/30 p-3 rounded-lg border border-vintage-mocha/10">
+          <span class="text-[10px] font-bold text-vintage-olive block uppercase mb-1">${promptData[taskId].title}</span>
+          <p class="text-xs font-mono bg-white p-2.5 rounded border border-vintage-mocha/20 leading-relaxed text-vintage-charcoal/90">
+            ${promptData[taskId].content}
+          </p>
+        </div>
+      `;
+    }
+
+    // Tương tác giả lập phản hồi của AI
     let typingInterval;
     function simulatePromptResponse() {
       const responseBox = document.getElementById('ai-response-box');
@@ -981,52 +1028,55 @@
       responseBox.classList.remove('hidden');
       responseText.innerHTML = "";
       
-      const fullText = "Guten Tag! Dưới đây là kết quả phân tích yêu cầu từ Trí tuệ nhân tạo:\n\n1. Relativsatz dùng để bổ nghĩa cho danh từ đứng trước.\n2. Động từ có xu hướng lùi về cuối mệnh đề phụ.\nVí dụ: 'Das Buch, das ich lese, ist sehr interessant.' (Cuốn sách tôi đang đọc rất hay).\n\nChúc Bảo Ngọc học tốt ngữ pháp tiếng Đức!";
+      let responseString = "";
+      if (activePromptTask === 1) {
+        responseString = "Hallo Đặng Bảo Ngọc! Phân tích tóm tắt phương pháp học từ vựng DaF:\n1. Flashcards (Học từ vựng qua thẻ nhớ)\n2. Mindmap (Sơ đồ tư duy học theo chủ đề)\n3. Loci-Methode (Gắn từ vựng vào không gian quen thuộc)\nLời khuyên: Kết hợp Flashcards số hóa để ôn tập ngắt quãng hiệu quả [INDEX].";
+      } else if (activePromptTask === 2) {
+        responseString = "Chào em! Hãy nhớ nguyên tắc 'ống kính camera' của trợ giảng vui tính:\n- Akkusativ (Cách 4) = Một bộ phim hành động! Có sự di chuyển vị trí rõ rệt (Wohin? - Đi đâu?) [INDEX].\n- Dativ (Cách 3) = Một bức ảnh tĩnh! Vật thể nằm im không xê dịch (Wo? - Ở đâu?) [INDEX].";
+      } else {
+        responseString = "Hệ thống đề thi Đất nước học Đức:\nCâu 1: Bức tường Berlin được xây dựng vào năm nào? (Đáp án đúng: 1961) [INDEX].\nCâu 2: Sự sụp đổ của bức tường diễn ra năm nào? (Đáp án đúng: 1989) [INDEX].\nCâu hỏi tự luận: Hãy phân tích tác động đối với thế hệ trẻ ngày nay. Yêu cầu có từ khóa: Wiedervereinigung [INDEX].";
+      }
       
       let index = 0;
       clearInterval(typingInterval);
       
       typingInterval = setInterval(() => {
-        if (index < fullText.length) {
-          // Thay đổi ký tự xuống dòng thành thẻ HTML break
-          if (fullText.charAt(index) === '\n') {
+        if (index < responseString.length) {
+          if (responseString.charAt(index) === '\n') {
             responseText.innerHTML += '<br>';
           } else {
-            responseText.innerHTML += fullText.charAt(index);
+            responseText.innerHTML += responseString.charAt(index);
           }
           index++;
         } else {
           clearInterval(typingInterval);
         }
-      }, 25);
+      }, 20);
     }
 
-    // Di chuyển các thẻ tiến độ Kanban (Bài tập 04)
+    // Di chuyển các thẻ Kanban
     function moveTask(taskCard, targetColumnId) {
       playPageTurnSound();
       const targetColumn = document.getElementById(targetColumnId);
       if (targetColumn) {
         targetColumn.appendChild(taskCard);
         
-        // Điều chỉnh thay đổi hành trình cột kế tiếp khi click lại
-        if (targetColumnId === 'col-todo') {
-          taskCard.setAttribute('onclick', "moveTask(this, 'col-inprogress')");
-        } else if (targetColumnId === 'col-inprogress') {
+        if (targetColumnId === 'col-inprogress') {
           taskCard.setAttribute('onclick', "moveTask(this, 'col-done')");
         } else if (targetColumnId === 'col-done') {
-          taskCard.setAttribute('onclick', "moveTask(this, 'col-todo')");
+          taskCard.setAttribute('onclick', "moveTask(this, 'col-inprogress')");
         }
       }
     }
 
-    // Đóng dấu xác minh quy tắc đạo đức (Bài tập 06)
+    // Đóng dấu xác minh quy tắc đạo đức
     function toggleEthicCheck(element) {
       playPageTurnSound();
       const seal = element.querySelector('.ethic-seal');
       if (seal) {
         seal.classList.toggle('opacity-0');
         seal.classList.toggle('opacity-100');
-        seal.classList.toggle('scale-110');
+        seal.classList.toggle('scale-105');
       }
     }
   </script>
