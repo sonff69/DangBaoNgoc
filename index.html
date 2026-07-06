@@ -118,10 +118,10 @@
       }
     }
 
-    /* Hiệu ứng máy bay giấy chuyển động */
+    /* Hoạt ảnh máy bay thật lướt chéo từ dưới lên với độ ngẩng tự nhiên */
     @keyframes flyAcross {
       0% {
-        transform: translate(-100px, 100px) rotate(45deg);
+        transform: translate(-100px, 100px) rotate(0deg);
         opacity: 0;
       }
       20% {
@@ -131,7 +131,7 @@
         opacity: 0.8;
       }
       100% {
-        transform: translate(calc(100vw + 100px), -100px) rotate(15deg);
+        transform: translate(calc(100vw + 100px), -100px) rotate(-15deg);
         opacity: 0;
       }
     }
@@ -142,12 +142,12 @@
 </head>
 <body class="bg-paper-texture font-sans text-vintage-charcoal min-h-screen flex items-center justify-center p-3 md:p-5 overflow-hidden relative">
 
-  <!-- Máy bay giấy chuyển động dạng hoạt họa -->
+  <!-- Máy bay thật chuyển động dạng hoạt họa (Đã đổi icon fa-plane) -->
   <div id="paper-plane" class="fixed pointer-events-none z-50 text-vintage-olive opacity-0" style="left: 0; top: 50%;">
-    <i class="fa-solid fa-paper-plane text-4xl"></i>
+    <i class="fa-solid fa-plane text-4xl"></i>
   </div>
 
-  <!-- CONTAINER CHÍNH: Tối đa hóa kích thước để lấp đầy cửa sổ trình duyệt tuyệt đối -->
+  <!-- CONTAINER CHÍNH: Tự động tính toán thích ứng kích thước cửa sổ trình duyệt -->
   <div class="w-full lg:w-[96vw] xl:w-[94vw] max-w-[1440px] passport-book relative h-auto min-h-[580px] lg:h-[88vh] lg:max-h-[820px] lg:min-h-[640px] flex items-center justify-center transition-all duration-300">
     
     <!-- ==================== COVER PAGE (BÌA HỘ CHIẾU) ==================== -->
@@ -425,7 +425,7 @@
 
           <!-- ==================== TRANG 02: TÌM KIẾM HỌC THUẬT ==================== -->
           <div id="page-task2" class="page-content hidden fade-in-up">
-            <div class="flex justify-between items-start mb-4">
+            <div class="flex justify-between items-start mb-3">
               <div>
                 <span class="text-[10px] font-mono text-vintage-mocha uppercase tracking-wider">CHẶNG 02 • ACADEMIC SEARCH STRATEGY</span>
                 <h3 class="font-playfair text-2xl font-bold text-vintage-olive">02. Chiến Lược Khai Thác & Đánh Giá</h3>
